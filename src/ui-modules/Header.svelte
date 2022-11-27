@@ -5,13 +5,14 @@
   }
 </script>
 
-<div class='header' id='test!!!!!!!!!!!'>
+<div id='test'>
   This is a header! 
 </div>
 
 <style>
-  .header {
+  #test {
+    width: 100%;
+    height: 10%;
     background-color: grey;
-    height: 5%;
   }
 </style>
