@@ -1,18 +1,17 @@
 <script>
-  let count = 0
-  const increment = () => {
-    count += 1
-  }
+  import HeaderLogo from './HeaderLogo.svelte'
+
+  export let headerData;
 </script>
 
-<div id='test'>
-  This is a header! 
+<div id='header'>
+  <HeaderLogo {...headerData}/>
 </div>
 
 <style>
-  #test {
+  #header {
     width: 100%;
-    height: 10%;
-    background-color: grey;
+    height: 10vh;
+    background-color: #FAFAFA;
   }
 </style>

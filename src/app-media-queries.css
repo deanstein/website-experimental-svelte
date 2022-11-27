@@ -1,0 +1,12 @@
+  /* app-wide media queries for responsive behavior */
+  @media screen and (max-width: 1900) {
+    :global(.header) {
+      background-color: red;
+    }
+  }
+
+    @media screen and (max-width: 600) {
+      :global(.header) {
+        background-color: green;
+      }
+  }
