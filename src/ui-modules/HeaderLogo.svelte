@@ -1,13 +1,12 @@
 <script>
-  export let headerData;
+  export let headerLogoSrc;
+  export let headerLogoAlt;
 </script>
 
-<div id='header-logo'>
-  <img src={headerData.logo.src} alt={headerData.logo.alt}>
-</div>
+<img src={headerLogoSrc} alt={headerLogoAlt} id='header-logo'>
 
 <style>
   #header-logo {
-    max-height: 5%;
+    height: 100%;
   }
 </style>

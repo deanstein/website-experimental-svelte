@@ -5,13 +5,15 @@
 </script>
 
 <div id='header'>
-  <HeaderLogo {...headerData}/>
+  <HeaderLogo 
+    headerLogoSrc={headerData.logo.src} 
+    headerLogoAlt={headerData.logo.alt}>
+  </HeaderLogo>
 </div>
 
 <style>
   #header {
     width: 100%;
-    height: 10vh;
     background-color: #FAFAFA;
   }
 </style>
