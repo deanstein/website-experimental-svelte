@@ -1,5 +1,6 @@
 <script>
   import HeaderLogo from './HeaderLogo.svelte'
+  import HeaderNav from './HeaderNav.svelte'
 
   export let headerData;
 </script>
@@ -9,6 +10,9 @@
     headerLogoSrc={headerData.logo.src} 
     headerLogoAlt={headerData.logo.alt}>
   </HeaderLogo>
+  <HeaderNav
+    headerNavData={headerData.navItems}>
+  </HeaderNav>
 </div>
 
 <style>

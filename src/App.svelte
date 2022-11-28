@@ -2,15 +2,15 @@
   import Header from './ui-modules/Header.svelte'
 
   const headerData = {
-    logo : {
-      src : '/src/assets/img/jdg-logo.png',
-      alt : 'The Work of Joshua Dean Goldstein'
+    logo: {
+      src: '/src/assets/img/jdg-logo.png',
+      alt: 'The Work of Joshua Dean Goldstein'
     },
-		navItems : { 
-      home : 'home.html', 
-      about : 'about.html', 
-      contact : 'contact.html' 
-    }
+		navItems: [ 
+      {name: 'Home', page: 'home.html'}, 
+      {name: 'About', page: 'about.html'}, 
+      {name: 'Contact', page: 'contact.html' }
+  ]
 	};
 </script>
 
@@ -51,6 +51,25 @@
   :global(#header) {
     height: 5vh;
     padding: 2vh;
+  }   
+}
+
+/* by width */
+@media (max-width: 600px) {
+  :global(#header-nav-container) {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) and (max-height: 1000px) {
+  :global(#header-nav-container) {
+    display: flex;
+  }
+}
+
+@media (min-width: 1000px) {
+  :global(#header-nav-container) {
+    display: flex;
   }   
 }
 </style>
