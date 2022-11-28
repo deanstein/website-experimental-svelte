@@ -7,6 +7,6 @@
 
 <style>
   #header-logo {
-    height: 100%;
+    height: 100%; /* fill the header with the logo top-to-bottom */
   }
 </style>

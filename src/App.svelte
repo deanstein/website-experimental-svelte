@@ -21,6 +21,7 @@
 </main>
 
 <style>
+/*** configure the root body ***/
 :root {
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   }
@@ -29,9 +30,9 @@
   margin: 0;
 }
 
-/*** app-wide media queries ***/
+/*** media queries ***/
 
-/* adjust based on height of viewport */
+/* by height */
 @media (max-height: 400px) {
   :global(#header) {
     height: 20vh;
