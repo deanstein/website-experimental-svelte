@@ -1,9 +1,13 @@
 <script>
+  import { headerClasses } from './../styles.js';
   export let headerLogoSrc;
   export let headerLogoAlt;
 </script>
 
-<img src={headerLogoSrc} alt={headerLogoAlt} id='header-logo'>
+<img src={headerLogoSrc} 
+  id='header-logo' 
+  class={headerClasses.headerLogo} 
+  alt={headerLogoAlt}>
 
 <style>
   #header-logo {
