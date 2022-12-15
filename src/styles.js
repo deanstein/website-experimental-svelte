@@ -23,10 +23,15 @@ export const sizes = {
 export const colors = {
 	headerBackgroundColor : '#FAFAFA',
 	headerNavItemBackgroundColor : 'darkGray',
-	headerNavItemBackgroundColorHover : 'red'
+	headerNavItemBackgroundColorHover : 'red',
+	test: 'red'
 };
 
 /*** UI elements ***/
+const myCss = css({
+	color: 'blue',
+  })
+  
 export const headerClasses = {
 	header : css`
 	@media (max-height: ${breakpoints.height.breakpoint0}) {
@@ -41,8 +46,6 @@ export const headerClasses = {
 		height: ${sizes.headerMaxHeight2};
 		padding: 2vh;
 		}
-
-	background-color: ${colors.headerBackgroundColor};
 	`,
 	headerLogo : css`
 	height: 100%; /* fill the header with the logo top-to-bottom */
@@ -60,7 +63,7 @@ export const headerClasses = {
 		  display: flex;
 	  }
 
-	height: 100%;
+	height: ${breakpoints.height.breakpoint0} / 2;
 	display: flex;
 	float: right;
 	align-items: center;

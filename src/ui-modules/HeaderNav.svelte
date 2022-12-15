@@ -2,6 +2,7 @@
   import { headerClasses } from './../styles.js';
 
   export let headerNavData;
+
 </script>
 
 <div 

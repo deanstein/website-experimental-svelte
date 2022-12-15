@@ -16,7 +16,7 @@
 
 <main>
   <div class='app'>
-    <Header {headerData}/>
+    <Header {headerData} headerColorOverride='blue'/>
   </div>
 </main>
 
@@ -29,4 +29,5 @@
 :global(body) {
   margin: 0;
 }
+
 </style>
