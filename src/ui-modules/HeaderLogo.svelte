@@ -1,12 +1,20 @@
 <script>
-  import { headerClasses } from './../styles.js';
+  // import libraries
+  import { css } from '@emotion/css';
+
+  // overrides
   export let headerLogoSrc;
   export let headerLogoAlt;
+
+  // shared styles
+  let headerLogoClass = css`
+	height: 100%; /* fill the header with the logo top-to-bottom */
+	`
 </script>
 
 <img src={headerLogoSrc} 
   id='header-logo' 
-  class={headerClasses.headerLogo} 
+  class={headerLogoClass} 
   alt={headerLogoAlt}>
 
 <style>

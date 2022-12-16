@@ -1,7 +1,13 @@
 <script>
-  import { headerClasses } from './../styles.js';
-  import {breakpoints} from './../styles.js';
+  // import libraries
+  import { css } from '@emotion/css';
+
+  // import shared styles
+  import { breakpoints } from './../styles.js';
   import { colors } from './../styles.js';
+  import { sizes} from './../styles.js';
+
+  // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
   import HeaderNav from './HeaderNav.svelte'
 
@@ -9,11 +15,25 @@
   export let headerData = undefined;
   export let headerColorOverride = undefined;
 
-  let elementContainer;
-  $: elementContainer && elementContainer.style.setProperty('--container-background', headerColorOverride ?? colors.headerBackgroundColor);
+  // dynamic styles
+  const headerClass = css`
+	@media (max-height: ${breakpoints.height[0]}) {
+		height: ${sizes.headerMaxHeight0};
+		padding: 5vh;
+		}
+	@media (min-height: ${breakpoints.height[0]}) and (max-height: ${breakpoints.height[1]}) {
+		height: ${sizes.headerMaxHeight1};
+		padding: 2vh;
+		}
+	@media (min-height: ${breakpoints.height[1]}) {
+		height: ${sizes.headerMaxHeight2};
+		padding: 2vh;
+		}
+  background-color: ${headerColorOverride ?? colors.headerBackgroundColor};
+	`
 </script>
 
-<div id='header' class='{headerClasses.header} header' bind:this={elementContainer}>
+<div id='header' class='{headerClass}'>
   <HeaderLogo 
     headerLogoSrc={headerData.logo.src} 
     headerLogoAlt={headerData.logo.alt}>
@@ -24,11 +44,5 @@
 </div>
 
 <style>
-:root {
-    --container-background: inherit;
-}
-
-.header {
-    background-color: var(--container-background);
-}
+  /* styles are defined dynamically above */
 </style>
