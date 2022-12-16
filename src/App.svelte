@@ -16,7 +16,7 @@
 
 <main>
   <div class='app'>
-    <Header {headerData} headerColorOverride='blue'/>
+    <Header {headerData}/>
   </div>
 </main>
 
