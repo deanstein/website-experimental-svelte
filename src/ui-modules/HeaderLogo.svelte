@@ -1,13 +1,15 @@
 <script>
+  // import from svelte
+  import { getContext } from 'svelte'
+
   // overrides
-  export let headerLogoSrc;
-  export let headerLogoAlt;
+  const headerOverrides = getContext('headerOverrides');
 </script>
 
-<img src={headerLogoSrc} 
+<img src={headerOverrides.headerLogo.src} 
   id='header-logo' 
   class='header-logo'
-  alt={headerLogoAlt}>
+  alt={headerOverrides.headerLogo.alt}>
 
 <style>
   .header-logo {

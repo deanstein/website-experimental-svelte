@@ -1,4 +1,7 @@
 <script>
+  // import from svelte
+  import { getContext } from 'svelte'
+
   // import libraries
   import { css } from '@emotion/css';
 
@@ -7,8 +10,8 @@
   import { colors } from '../shared-styles.js';
 
   // overrides
-  export let headerNavData = undefined;
-  export let headerNavItemTextColorOverride = undefined;
+  const headerOverrides = getContext('headerOverrides');
+  
   export let headerNavItemBackgroundColorOverride = undefined;
   export let headerNavItemBackgroundColorHoverOverride = undefined;
 
@@ -37,7 +40,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   height: 50%;
-  color: ${headerNavItemTextColorOverride ?? colors.headerBackgroundColor};
+  color: ${headerOverrides.headerNav.colors.headerNavItemTextColor ?? colors.headerBackgroundColor};
   background-color: ${headerNavItemBackgroundColorOverride ?? colors.headerNavItemBackgroundColor};
   :hover {
     background-color: ${headerNavItemBackgroundColorHoverOverride ?? colors.headerNavItemBackgroundColorHover};
@@ -48,7 +51,7 @@
   id="header-nav-container" 
   class={headerNavContainerClass}>
 
-    {#each headerNavData as { name }, i}
+    {#each headerOverrides.headerNav.navItems as { name }, i}
 
       <div class={headerNavItemClass}>{name}</div>
 

@@ -1,4 +1,7 @@
 <script>
+  // import from svelte
+  import { getContext } from 'svelte'
+
   // import libraries
   import { css } from '@emotion/css';
 
@@ -12,8 +15,7 @@
   import HeaderNav from './HeaderNav.svelte'
 
   // overrides
-  export let headerData = undefined;
-  export let headerColorOverride = undefined;
+  const headerOverrides = getContext('headerOverrides');
 
   // dynamic styles
   const headerClass = css`
@@ -29,18 +31,13 @@
 		height: ${sizes.headerMaxHeight2};
 		padding: 2vh;
 		}
-  background-color: ${headerColorOverride ?? colors.headerBackgroundColor};
+  background-color: ${headerOverrides.header.backgroundColor ?? colors.headerBackgroundColor};
 	`
 </script>
 
 <div id='header' class='{headerClass}'>
-  <HeaderLogo 
-    headerLogoSrc={headerData.logo.src} 
-    headerLogoAlt={headerData.logo.alt}>
-  </HeaderLogo>
-  <HeaderNav
-    headerNavData={headerData.navItems}>
-  </HeaderNav>
+  <HeaderLogo />
+  <HeaderNav />
 </div>
 
 <style>
