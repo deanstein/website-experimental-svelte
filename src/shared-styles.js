@@ -12,5 +12,5 @@ export const sizes = {
 export const colors = {
 	headerBackgroundColor: '#FAFAFA',
 	headerNavItemBackgroundColor: 'darkGray',
-	headerNavItemBackgroundColorHover: 'red'
-};
+	headerNavItemBackgroundColorHover : 'red'
+}

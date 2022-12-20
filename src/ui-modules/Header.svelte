@@ -1,21 +1,22 @@
 <script>
-  // import from svelte
-  import { getContext } from 'svelte'
-
   // import libraries
   import { css } from '@emotion/css';
 
   // import shared styles
   import { breakpoints } from '../shared-styles.js';
-  import { colors } from '../shared-styles.js';
   import { sizes} from '../shared-styles.js';
 
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
   import HeaderNav from './HeaderNav.svelte'
 
+  import headerOptions from './header.store'
+
   // overrides
-  const headerOverrides = getContext('headerOverrides');
+  //const headerOptions = getContext('headerOptions');
+
+  console.log("From header.svelte: ")
+  console.log($headerOptions);
 
   // dynamic styles
   const headerClass = css`
@@ -31,7 +32,7 @@
 		height: ${sizes.headerMaxHeight2};
 		padding: 2vh;
 		}
-  background-color: ${headerOverrides.header.backgroundColor ?? colors.headerBackgroundColor};
+  background-color: ${$headerOptions.style.container.backgroundColor};
 	`
 </script>
 

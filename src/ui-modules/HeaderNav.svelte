@@ -1,19 +1,12 @@
 <script>
-  // import from svelte
-  import { getContext } from 'svelte'
-
   // import libraries
   import { css } from '@emotion/css';
 
   // import shared styles
   import { breakpoints } from '../shared-styles.js';
-  import { colors } from '../shared-styles.js';
 
   // overrides
-  const headerOverrides = getContext('headerOverrides');
-  
-  export let headerNavItemBackgroundColorOverride = undefined;
-  export let headerNavItemBackgroundColorHoverOverride = undefined;
+  import headerOptions from './header.store'
 
   // dynamic styles powered by Emotion
   const headerNavContainerClass = css`
@@ -26,7 +19,6 @@
   @media (min-width: ${breakpoints.width[1]}) {
     display: flex;
   }
-
   height: 100%;
   display: flex;
   float: right;
@@ -40,10 +32,10 @@
   padding-left: 1rem;
   padding-right: 1rem;
   height: 50%;
-  color: ${headerOverrides.headerNav.colors.headerNavItemTextColor ?? colors.headerBackgroundColor};
-  background-color: ${headerNavItemBackgroundColorOverride ?? colors.headerNavItemBackgroundColor};
+  color: ${$headerOptions.style.nav.itemTextColor};
+  background-color: ${$headerOptions.style.nav.itemBackgroundColor};
   :hover {
-    background-color: ${headerNavItemBackgroundColorHoverOverride ?? colors.headerNavItemBackgroundColorHover};
+    background-color: ${$headerOptions.style.nav.itemBackgroundColor};
 `
 </script>
 
@@ -51,7 +43,7 @@
   id="header-nav-container" 
   class={headerNavContainerClass}>
 
-    {#each headerOverrides.headerNav.navItems as { name }, i}
+    {#each $headerOptions.nav.items as { name }, i}
 
       <div class={headerNavItemClass}>{name}</div>
 

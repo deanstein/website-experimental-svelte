@@ -1,33 +1,27 @@
 <script>
-  // import from svelte
-  import { setContext } from 'svelte'
-
   // import sub-components
   import Header from './ui-modules/Header.svelte'
+  import headerOptions from './ui-modules/header.store.js'
+  
+  console.log($headerOptions);
 
-  // configure the header and its sub-components
-  const headerConfig = {
-    header: {
-      headerBackgroundColor: undefined
+  headerOptions.updateOptions( 
+    {
+      logo: {
+        src: './src/assets/img/jdg-logo.png',
+        alt: 'The work of Joshua Dean Goldstein'
     },
-    headerLogo: {
-      src: '/src/assets/img/jdg-logo.png',
-      alt: 'The Work of Joshua Dean Goldstein'
-    },
-    headerNav: {
-      navItems: [ 
-      {name: 'Home', page: 'home.html'}, 
-      {name: 'About', page: 'about.html'}, 
-      {name: 'Contact', page: 'contact.html' }
-    ],
-      colors: {
-        headerNavItemBackgroundColor: undefined,
-        headerNavItemTextColor: undefined
+    nav:{
+        items: [
+            {name: 'Home', page: 'home.html'}, 
+            {name: 'About', page: 'about.html'}, 
+            {name: 'Contact', page: 'contact.html'}
+        ] 
       }
-    }
-  }
+  });
 
-  setContext('headerOverrides', headerConfig)
+  console.log($headerOptions);
+
 </script>
 
 <main>
