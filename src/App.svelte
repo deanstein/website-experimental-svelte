@@ -1,9 +1,8 @@
 <script>
   // import sub-components
-  import Header from './ui-modules/Header.svelte'
-  import headerOptions from './ui-modules/header.store.js'
-  
-  console.log($headerOptions);
+  import Header from './ui-modules/Header/Header.svelte'
+  import headerOptions from './ui-modules/Header/header.store.js'
+
 
   headerOptions.updateOptions( 
     {
@@ -19,8 +18,6 @@
         ] 
       }
   });
-
-  console.log($headerOptions);
 
 </script>
 

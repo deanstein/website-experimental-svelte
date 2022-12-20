@@ -3,7 +3,7 @@
   import { css } from '@emotion/css';
 
   // import shared styles
-  import { breakpoints } from '../shared-styles.js';
+  import { breakpoints } from '../../shared-styles.js';
 
   // overrides
   import headerOptions from './header.store'

@@ -3,8 +3,8 @@
   import { css } from '@emotion/css';
 
   // import shared styles
-  import { breakpoints } from '../shared-styles.js';
-  import { sizes} from '../shared-styles.js';
+  import { breakpoints } from '../../shared-styles.js';
+  import { sizes} from '../../shared-styles.js';
 
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
