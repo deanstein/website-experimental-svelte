@@ -9,7 +9,6 @@
 
 <style>
   .header-logo-subtitle {
-    height: 100%;
     margin-left: 10px;
     display: inline;
     align-items: center;

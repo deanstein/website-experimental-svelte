@@ -26,6 +26,8 @@
 		height: ${sizes.headerMaxHeight2};
 		padding: 2vh;
 		}
+  display: flex;
+  justify-content: space-between;
   background-color: ${$headerOptions.style.container.backgroundColor};
 	`
 </script>
@@ -35,11 +37,6 @@
 {#if $headerOptions.data.logo.show}
   <HeaderLogo />
 {/if}
-
-{#if $headerOptions.data.logoSubtitle.show}
-  <HeaderLogoSubtitle />
-{/if}
-
 
 {#if $headerOptions.data.nav.show}
   <HeaderNav />
