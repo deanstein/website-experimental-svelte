@@ -12,12 +12,6 @@
 
   import headerOptions from './header.store'
 
-  // overrides
-  //const headerOptions = getContext('headerOptions');
-
-  console.log("From header.svelte: ")
-  console.log($headerOptions);
-
   // dynamic styles
   const headerClass = css`
 	@media (max-height: ${breakpoints.height[0]}) {

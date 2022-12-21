@@ -3,10 +3,10 @@
   import headerOptions from './header.store'
 </script>
 
-<img src={$headerOptions.logo.src} 
+<img src={$headerOptions.data.logo.src} 
   id='header-logo' 
   class='header-logo'
-  alt={$headerOptions.logo.alt}>
+  alt={$headerOptions.data.logo.alt}>
 
 <style>
   .header-logo {

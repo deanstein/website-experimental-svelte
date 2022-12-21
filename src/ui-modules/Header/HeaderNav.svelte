@@ -43,7 +43,7 @@
   id="header-nav-container" 
   class={headerNavContainerClass}>
 
-    {#each $headerOptions.nav.items as { name }, i}
+    {#each $headerOptions.data.nav.items as { name }, i}
 
       <div class={headerNavItemClass}>{name}</div>
 

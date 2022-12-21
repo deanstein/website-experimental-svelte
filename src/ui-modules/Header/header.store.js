@@ -1,17 +1,18 @@
  import { writable } from 'svelte/store';
 
  const headerOptions = {
-    logo: 
-    {
-        src: '/img/logo.png',
-        alt: 'Logo alt text'
-    },
-    nav:{
-        items: [
-            {name: 'Home', page: 'home.html'}, 
-            {name: 'About', page: 'about.html'}, 
-            {name: 'Contact', page: 'contact.html'}
-        ] 
+    data: {
+        logo: {
+            src: 'https://github.com/deanstein/website-experimental-svelte/src/ui-modules/Header/img/logo.png',
+            alt: 'Logo alt text'
+        },
+        nav: {
+            items: [
+                {name: 'Home', page: 'home.html'}, 
+                {name: 'About', page: 'about.html'}, 
+                {name: 'Contact', page: 'contact.html'}
+            ] 
+        },
     },
     style: {
         container: {

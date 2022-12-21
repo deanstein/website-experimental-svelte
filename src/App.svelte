@@ -3,19 +3,20 @@
   import Header from './ui-modules/Header/Header.svelte'
   import headerOptions from './ui-modules/Header/header.store.js'
 
-
   headerOptions.updateOptions( 
     {
-      logo: {
-        src: './src/assets/img/jdg-logo.png',
-        alt: 'The work of Joshua Dean Goldstein'
-    },
-    nav:{
-        items: [
+      data: {
+        logo: {
+          src: './src/assets/img/jdg-logo.png',
+          alt: 'The work of Joshua Dean Goldstein'
+        },
+        nav: {
+          items: [
             {name: 'Home', page: 'home.html'}, 
             {name: 'About', page: 'about.html'}, 
             {name: 'Contact', page: 'contact.html'}
-        ] 
+          ] 
+        }
       }
   });
 
