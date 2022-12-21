@@ -8,9 +8,8 @@
 
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
+  import HeaderLogoSubtitle from './HeaderLogoSubtitle.svelte'
   import HeaderNav from './HeaderNav.svelte'
-
-  // import options/overrides for the header component
   import headerOptions from './stores/headerOptions.js'
 
   // dynamic styles
@@ -32,8 +31,20 @@
 </script>
 
 <div id='header' class='{headerClass}'>
+
+{#if $headerOptions.data.logo.show}
   <HeaderLogo />
+{/if}
+
+{#if $headerOptions.data.logoSubtitle.show}
+  <HeaderLogoSubtitle />
+{/if}
+
+
+{#if $headerOptions.data.nav.show}
   <HeaderNav />
+{/if}
+
 </div>
 
 <style>

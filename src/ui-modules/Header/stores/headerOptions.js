@@ -5,10 +5,16 @@
  const headerOptions = {
     data: {
         logo: {
+            show: true,
             src: './src/ui-modules/Header/img/logo.png',
-            alt: 'Logo alt text'
+            alt: 'A logo for this website'
+        },
+        logoSubtitle: {
+            show: false,
+            text: 'An optional subtitle for this website'
         },
         nav: {
+            show: true,
             items: [
                 {name: 'Home', page: 'home.html'}, 
                 {name: 'About', page: 'about.html'}, 
@@ -21,9 +27,10 @@
             backgroundColor: '#FAFAFA',
         },
         nav: {
+            itemTextColor: 'white',
+            itemTextHoverColor: 'white',
             itemBackgroundColor: 'darkGray',
-            itemBackgroundColorHover: 'red',
-            itemTextColor: 'blue'
+            itemBackgroundColorHover: 'black'
         }
     }
 }
