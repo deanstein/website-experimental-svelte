@@ -9,9 +9,8 @@
 
 <style>
   .header-logo-subtitle {
-    margin-left: 10px;
+    margin-left: 15px;
     display: inline;
-    align-items: center;
     font-weight: bold;
     letter-spacing: 5px;
   }
