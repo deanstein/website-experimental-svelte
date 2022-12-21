@@ -5,7 +5,7 @@
  const headerOptions = {
     data: {
         logo: {
-            src: 'https://github.com/deanstein/website-experimental-svelte/blob/main/src/ui-modules/Header/img/logo.png?raw=true',
+            src: './src/ui-modules/Header/img/logo.png',
             alt: 'Logo alt text'
         },
         nav: {
