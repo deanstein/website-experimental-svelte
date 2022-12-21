@@ -27,14 +27,17 @@
   const headerNavItemClass = css`
   display: flex;
   align-items: center;
+  letter-spacing: 5px;
   margin-left: 1rem;
   margin-right: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   height: 50%;
+  font-weight: bold;
   color: ${$headerOptions.style.nav.itemTextColor};
   background-color: ${$headerOptions.style.nav.itemBackgroundColor};
   :hover {
+    color: ${$headerOptions.style.nav.itemTextHoverColor};
     background-color: ${$headerOptions.style.nav.itemBackgroundColor};
 `
 </script>

@@ -8,14 +8,18 @@
     {
       data: {
         logo: {
-          src: './src/assets/img/jdg-logo.png',
+          src: './src/assets/img/jdg-logo.jpg',
           alt: 'The work of Joshua Dean Goldstein'
+        },
+        logoSubtitle: {
+          show: true,
+          text: 'J. DEAN GOLDSTEIN'
         },
         nav: {
           items: [
-            {name: 'Home', page: 'home.html'}, 
-            {name: 'About', page: 'about.html'}, 
-            {name: 'Contact', page: 'contact.html'}
+            {name: 'HOME', page: 'home.html'}, 
+            {name: 'ABOUT', page: 'about.html'}, 
+            {name: 'CONTACT', page: 'contact.html'}
           ] 
         }
       },
@@ -24,9 +28,10 @@
             backgroundColor: '#FAFAFA',
         },
         nav: {
-            itemBackgroundColor: 'darkGray',
-            itemBackgroundColorHover: 'red',
-            itemTextColor: 'blue'
+            itemBackgroundColor: 'none',
+            itemBackgroundColorHover: 'none',
+            itemTextColor: 'black',
+            itemTextHoverColor: 'darkGray'
         }
       }
   });
@@ -42,7 +47,7 @@
 <style>
 /*** configure the root body ***/
 :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: proxima-nova, sans-serif;
   }
   
 :global(body) {
