@@ -1,9 +1,11 @@
  import { writable } from 'svelte/store';
 
+ import { ObjectUtils } from '../../utils';
+
  const headerOptions = {
     data: {
         logo: {
-            src: 'https://github.com/deanstein/website-experimental-svelte/src/ui-modules/Header/img/logo.png',
+            src: 'https://github.com/deanstein/website-experimental-svelte/blob/main/src/ui-modules/Header/img/logo.png?raw=true',
             alt: 'Logo alt text'
         },
         nav: {
@@ -30,7 +32,7 @@ const { subscribe, set, update } = writable(headerOptions);
 
 const updateOptions = (newOptions) => {
     update(currentOptions => {
-        return {...currentOptions, ...newOptions}
+        return ObjectUtils.updateObject(currentOptions, newOptions);
     })
 }
 
