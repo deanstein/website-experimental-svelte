@@ -6,7 +6,7 @@
   import { breakpoints } from '../../shared-styles.js';
 
   // overrides
-  import headerOptions from './header.store'
+  import headerOptions from './stores/headerOptions.js'
 
   // dynamic styles powered by Emotion
   const headerNavContainerClass = css`

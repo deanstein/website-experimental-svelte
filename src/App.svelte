@@ -1,8 +1,9 @@
 <script>
   // import sub-components
   import Header from './ui-modules/Header/Header.svelte'
-  import headerOptions from './ui-modules/Header/header.store.js'
+  import headerOptions from './ui-modules/Header/stores/headerOptions.js'
 
+  // configure the header component with options/overrides
   headerOptions.updateOptions( 
     {
       data: {
@@ -16,6 +17,16 @@
             {name: 'About', page: 'about.html'}, 
             {name: 'Contact', page: 'contact.html'}
           ] 
+        }
+      },
+      style: {
+        container: {
+            backgroundColor: '#FAFAFA',
+        },
+        nav: {
+            itemBackgroundColor: 'darkGray',
+            itemBackgroundColorHover: 'red',
+            itemTextColor: 'blue'
         }
       }
   });

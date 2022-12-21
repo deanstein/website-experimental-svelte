@@ -4,13 +4,14 @@
 
   // import shared styles
   import { breakpoints } from '../../shared-styles.js';
-  import { sizes} from '../../shared-styles.js';
+  import { sizes } from '../../shared-styles.js';
 
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
   import HeaderNav from './HeaderNav.svelte'
 
-  import headerOptions from './header.store'
+  // import options/overrides for the header component
+  import headerOptions from './stores/headerOptions.js'
 
   // dynamic styles
   const headerClass = css`

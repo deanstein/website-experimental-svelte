@@ -1,6 +1,6 @@
  import { writable } from 'svelte/store';
 
- import { ObjectUtils } from '../../utils';
+ import { ObjectUtils } from '../../../utils';
 
  const headerOptions = {
     data: {

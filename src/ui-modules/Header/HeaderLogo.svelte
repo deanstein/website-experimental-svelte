@@ -1,6 +1,6 @@
 <script>
   // overrides
-  import headerOptions from './header.store'
+  import headerOptions from './stores/headerOptions.js'
 </script>
 
 <img src={$headerOptions.data.logo.src} 
