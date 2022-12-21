@@ -34,11 +34,11 @@
   padding-right: 1rem;
   height: 50%;
   font-weight: bold;
-  color: ${$headerOptions.style.nav.itemTextColor};
-  background-color: ${$headerOptions.style.nav.itemBackgroundColor};
+  color: ${$headerOptions.nav.styleOverrides.itemTextColor};
+  background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
-    color: ${$headerOptions.style.nav.itemTextHoverColor};
-    background-color: ${$headerOptions.style.nav.itemBackgroundColor};
+    color: ${$headerOptions.nav.styleOverrides.itemTextHoverColor};
+    background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
 `
 </script>
 
@@ -46,7 +46,7 @@
   id="header-nav-container" 
   class={headerNavContainerClass}>
 
-    {#each $headerOptions.data.nav.items as { name }, i}
+    {#each $headerOptions.nav.items as { name }, i}
 
       <div class={headerNavItemClass}>{name}</div>
 

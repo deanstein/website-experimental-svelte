@@ -4,7 +4,7 @@
 </script>
 
 <div class='header-logo-subtitle'>
-  {$headerOptions.data.logoSubtitle.text}
+  {$headerOptions.logoSubtitle.text}
 </div>
 
 <style>

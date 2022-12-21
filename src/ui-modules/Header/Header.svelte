@@ -8,7 +8,6 @@
 
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
-  import HeaderLogoSubtitle from './HeaderLogoSubtitle.svelte'
   import HeaderNav from './HeaderNav.svelte'
   import headerOptions from './stores/headerOptions.js'
 
@@ -28,17 +27,17 @@
 		}
   display: flex;
   justify-content: space-between;
-  background-color: ${$headerOptions.style.container.backgroundColor};
+  background-color: ${$headerOptions.container.styleOverrides.backgroundColor};
 	`
 </script>
 
 <div id='header' class='{headerClass}'>
 
-{#if $headerOptions.data.logo.show}
+{#if $headerOptions.logo.show}
   <HeaderLogo />
 {/if}
 
-{#if $headerOptions.data.nav.show}
+{#if $headerOptions.nav.show}
   <HeaderNav />
 {/if}
 

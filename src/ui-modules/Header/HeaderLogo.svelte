@@ -5,12 +5,12 @@
 </script>
 
 <div class='logoContainer'>
-  <img src={$headerOptions.data.logo.src} 
-  id='header-logo' 
-  class='header-logo'
-  alt={$headerOptions.data.logo.alt}>
+  <img src={$headerOptions.logo.src} 
+    id='header-logo' 
+    class='header-logo'
+    alt={$headerOptions.logo.alt}>
 
-  {#if $headerOptions.data.logoSubtitle.show}
+  {#if $headerOptions.logoSubtitle.show}
     <HeaderLogoSubtitle />
   {/if}
 </div>
