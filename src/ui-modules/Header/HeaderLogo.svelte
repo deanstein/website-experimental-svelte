@@ -8,7 +8,7 @@
 
 <div class='header-logo-container'>
   <img src={$headerOptions.logo.src} 
-    id='header-logo' 
+    id='headerLogo' 
     class='header-logo'
     alt={$headerOptions.logo.alt}>
 

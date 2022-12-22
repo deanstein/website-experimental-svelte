@@ -12,7 +12,7 @@
   const headerOptions = getContext('headerOptions')
 
   // dynamic styles powered by Emotion
-  const headerNavContainerClass = css`
+  const headerNavContainer = css`
   @media (max-width: ${breakpoints.width[0]}) {
   display: block;
   }
@@ -22,21 +22,8 @@
   @media (min-width: ${breakpoints.width[1]}) {
     display: flex;
   }
-  height: 100%;
-  display: flex;
-  float: right;
-  align-items: center;
 `
-  const headerNavItemClass = css`
-  display: flex;
-  align-items: center;
-  letter-spacing: 5px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 50%;
-  font-weight: bold;
+  const headerNavItem = css`
   color: ${$headerOptions.nav.styleOverrides.itemTextColor};
   background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
@@ -47,15 +34,32 @@
 
 <div 
   id="header-nav-container" 
-  class={headerNavContainerClass}>
+  class='{headerNavContainer} header-nav-container'>
 
     {#each $headerOptions.nav.items as { name }, i}
 
-      <div class={headerNavItemClass}>{name}</div>
+      <div class='{headerNavItem } header-nav-item'>{name}</div>
 
     {/each}
 </div>
 
 <style>
-  /* styles are defined dynamically in styles.js */
+  .header-nav-container {
+    height: 100%;
+    display: flex;
+    float: right;
+    align-items: center;
+  }
+
+  .header-nav-item {
+    display: flex;
+    align-items: center;
+    letter-spacing: 5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 50%;
+    font-weight: bold;
+  }
 </style>

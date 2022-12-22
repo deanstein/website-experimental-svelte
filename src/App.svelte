@@ -16,7 +16,6 @@
 </main>
 
 <style>
-/*** configure the root body ***/
 :root {
     font-family: proxima-nova, sans-serif;
   }
@@ -24,5 +23,4 @@
 :global(body) {
   margin: 0;
 }
-
 </style>

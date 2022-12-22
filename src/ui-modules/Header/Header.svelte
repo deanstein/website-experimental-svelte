@@ -17,7 +17,7 @@
   const headerOptions = getContext('headerOptions')
 
   // dynamic styles
-  const headerClass = css`
+  const headerContainer = css`
 	@media (max-height: ${breakpoints.height[0]}) {
 		height: ${sizes.headerMaxHeight0};
 		padding: 5vh;
@@ -30,13 +30,11 @@
 		height: ${sizes.headerMaxHeight2};
 		padding: 2vh;
 		}
-  display: flex;
-  justify-content: space-between;
   background-color: ${$headerOptions.container.styleOverrides.backgroundColor};
 	`
 </script>
 
-<div id='header' class='{headerClass}'>
+<div id='header' class='{headerContainer} header-container'>
 
 {#if $headerOptions.logo.show}
   <HeaderLogo />
@@ -50,4 +48,8 @@
 
 <style>
   /* styles are defined dynamically above */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
