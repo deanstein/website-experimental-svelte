@@ -4,6 +4,7 @@
 
   // import sub-components
   import Header from './ui-modules/Header/Header.svelte'
+  import Hero from './ui-modules/Hero/Hero.svelte'
   import headerOptions from './ui-modules/Header/stores/headerOptionsJDG.js'
 
   setContext('headerOptions', headerOptions);
@@ -12,6 +13,7 @@
 <main>
   <div class='app'>
     <Header />
+    <Hero />
   </div>
 </main>
 

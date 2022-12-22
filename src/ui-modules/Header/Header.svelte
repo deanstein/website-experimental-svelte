@@ -36,6 +36,7 @@
   padding-left: ${$headerOptions.container.styleOverrides.paddingLeftRight};
   padding-right: ${$headerOptions.container.styleOverrides.paddingLeftRight};
   background-color: ${$headerOptions.container.styleOverrides.backgroundColor};
+  opacity: 80%;
 	`
 </script>
 
@@ -55,6 +56,8 @@
   .header-container {
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
