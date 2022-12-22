@@ -56,8 +56,11 @@
   .header-container {
     display: flex;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
+    position: fixed;
+
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
