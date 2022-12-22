@@ -13,4 +13,8 @@
         width: -moz-available;          /* WebKit-based browsers will ignore this. */
         width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     }
+
+    img {
+        width: 100%;
+    }
 </style>
