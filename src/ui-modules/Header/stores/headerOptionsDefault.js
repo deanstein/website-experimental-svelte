@@ -5,12 +5,12 @@
  const headerOptions = {
     container: {
         styleOverrides: {
-            backgroundColor: '#FAFAFA',
+            backgroundColor: 'gray',
         }
     },
     logo: {
         show: true,
-        src: './src/ui-modules/Header/img/logo.png',
+        src: './src/ui-modules/Header/img/defaultLogo.png',
         alt: 'A logo for this website'
     },
     logoSubtitle: {

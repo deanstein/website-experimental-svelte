@@ -1,12 +1,15 @@
 <script>
+  // import from svelte
+  import { getContext } from 'svelte';
+
   // import libraries
   import { css } from '@emotion/css';
 
   // import shared styles
   import { breakpoints } from '../../shared-styles.js';
 
-  // overrides
-  import headerOptions from './stores/headerOptions.js'
+  // get header options from parent
+  const headerOptions = getContext('headerOptions')
 
   // dynamic styles powered by Emotion
   const headerNavContainerClass = css`

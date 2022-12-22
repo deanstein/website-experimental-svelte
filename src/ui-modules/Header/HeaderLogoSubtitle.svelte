@@ -1,6 +1,9 @@
 <script>
-  // overrides
-  import headerOptions from './stores/headerOptions.js'
+  // import from svelte
+  import { getContext } from 'svelte';
+
+  // get header options from parent
+  const headerOptions = getContext('headerOptions')
 </script>
 
 <div class='header-logo-subtitle'>

@@ -1,4 +1,7 @@
 <script>
+  // import from svelte
+  import { getContext } from 'svelte';
+
   // import libraries
   import { css } from '@emotion/css';
 
@@ -9,7 +12,9 @@
   // import sub-components
   import HeaderLogo from './HeaderLogo.svelte'
   import HeaderNav from './HeaderNav.svelte'
-  import headerOptions from './stores/headerOptions.js'
+
+  // get header options from parent
+  const headerOptions = getContext('headerOptions')
 
   // dynamic styles
   const headerClass = css`
