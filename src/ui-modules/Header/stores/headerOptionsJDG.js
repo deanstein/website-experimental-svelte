@@ -13,7 +13,7 @@
         src: './src/assets/img/jdg-logo.jpg',
         alt: 'The work of Joshua Dean Goldstein',
         styleOverrides: {
-            alignItems: 'end'
+            alignItems: 'center' /* vertically align the subtitle in the header */
         },
         subtitle: {
             show: true,
@@ -28,7 +28,7 @@
             {name: 'CONTACT', page: 'contact.html'}
         ],
         styleOverrides: {
-            alignItems: 'end',
+            alignItems: 'center', /* vertically align the navbar in the header */
             itemTextColor: 'black',
             itemTextHoverColor: 'gray',
             itemBackgroundColor: 'none',

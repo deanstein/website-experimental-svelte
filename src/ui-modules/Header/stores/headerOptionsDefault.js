@@ -13,7 +13,7 @@
         src: './src/ui-modules/Header/img/defaultLogo.png',
         alt: 'A logo for this website',
         styleOverrides: {
-            alignItems: 'center'
+            alignItems: 'center' /* vertically align the subtitle in the header */
         },
         subtitle: {
             show: false,
@@ -28,7 +28,7 @@
             {name: 'Contact', page: 'contact.html'}
             ],
         styleOverrides: {
-            alignItems: 'center',
+            alignItems: 'center', /* vertically align the navbar in the header */
             itemTextColor: 'white',
             itemTextHoverColor: 'white',
             itemBackgroundColor: 'darkGray',
