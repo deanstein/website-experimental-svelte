@@ -11,11 +11,11 @@
     logo: {
         show: true,
         src: './src/ui-modules/Header/img/defaultLogo.png',
-        alt: 'A logo for this website'
-    },
-    logoSubtitle: {
-        show: false,
-        text: 'An optional subtitle for this website'
+        alt: 'A logo for this website',
+        subtitle: {
+            show: false,
+            text: 'An optional subtitle for this website'
+        }
     },
     nav: {
         show: true,

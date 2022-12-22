@@ -11,11 +11,11 @@
       logo: {
         show: true,
         src: './src/assets/img/jdg-logo.jpg',
-        alt: 'The work of Joshua Dean Goldstein'
-      },
-      logoSubtitle: {
-        show: true,
-        text: 'J. DEAN GOLDSTEIN'
+        alt: 'The work of Joshua Dean Goldstein',
+        subtitle: {
+            show: true,
+            text: 'J. DEAN GOLDSTEIN'
+          },
       },
       nav: {
         show: true,
