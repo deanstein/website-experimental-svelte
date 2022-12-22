@@ -12,6 +12,9 @@
         show: true,
         src: './src/ui-modules/Header/img/defaultLogo.png',
         alt: 'A logo for this website',
+        styleOverrides: {
+            alignItems: 'center'
+        },
         subtitle: {
             show: false,
             text: 'An optional subtitle for this website'
@@ -25,6 +28,7 @@
             {name: 'Contact', page: 'contact.html'}
             ],
         styleOverrides: {
+            alignItems: 'center',
             itemTextColor: 'white',
             itemTextHoverColor: 'white',
             itemBackgroundColor: 'darkGray',

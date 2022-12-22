@@ -22,8 +22,10 @@
   @media (min-width: ${breakpoints.width[1]}) {
     display: flex;
   }
+  align-items: ${$headerOptions.nav.styleOverrides.alignItems};
 `
   const headerNavItem = css`
+  align-items: ${$headerOptions.nav.styleOverrides.alignItems};
   color: ${$headerOptions.nav.styleOverrides.itemTextColor};
   background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
@@ -48,12 +50,10 @@
     height: 100%;
     display: flex;
     float: right;
-    align-items: center;
   }
 
   .header-nav-item {
     display: flex;
-    align-items: center;
     letter-spacing: 5px;
     margin-left: 1rem;
     margin-right: 1rem;

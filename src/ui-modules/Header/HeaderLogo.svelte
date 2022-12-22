@@ -2,11 +2,19 @@
   // import from svelte
   import { getContext } from 'svelte'
 
+  // import libraries
+  import { css } from '@emotion/css';
+
   // get header options from parent
   const headerOptions = getContext('headerOptions')
+
+  // dynamic styles powered by Emotion
+  const headerLogoContainer = css`
+    align-items: ${$headerOptions.logo.styleOverrides.alignItems};
+`
 </script>
 
-<div class='header-logo-container'>
+<div class='{headerLogoContainer} header-logo-container'>
   <img src={$headerOptions.logo.src} 
     id='headerLogo' 
     class='header-logo'
@@ -23,7 +31,6 @@
   .header-logo-container {
     height: 100%;
     display: flex;
-    align-items: center;
   }
 
   .header-logo {

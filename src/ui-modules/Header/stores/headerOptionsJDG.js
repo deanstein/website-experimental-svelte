@@ -12,6 +12,9 @@
         show: true,
         src: './src/assets/img/jdg-logo.jpg',
         alt: 'The work of Joshua Dean Goldstein',
+        styleOverrides: {
+            alignItems: 'end'
+        },
         subtitle: {
             show: true,
             text: 'J. DEAN GOLDSTEIN'
@@ -25,6 +28,7 @@
             {name: 'CONTACT', page: 'contact.html'}
         ],
         styleOverrides: {
+            alignItems: 'end',
             itemTextColor: 'black',
             itemTextHoverColor: 'gray',
             itemBackgroundColor: 'none',
