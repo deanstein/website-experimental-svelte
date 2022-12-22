@@ -5,7 +5,8 @@
  const headerOptions = {
     container: {
         styleOverrides: {
-          backgroundColor: '#FAFAFA'
+            paddingLeftRight: '2rem',
+            backgroundColor: '#FAFAFA'
         }
       },
       logo: {

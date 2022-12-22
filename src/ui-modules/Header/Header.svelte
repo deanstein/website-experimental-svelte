@@ -20,16 +20,21 @@
   const headerContainer = css`
 	@media (max-height: ${breakpoints.height[0]}) {
 		height: ${sizes.headerMaxHeight0};
-		padding: 5vh;
+		padding-top: 5vh;
+    padding-bottom: 5vh;
 		}
 	@media (min-height: ${breakpoints.height[0]}) and (max-height: ${breakpoints.height[1]}) {
 		height: ${sizes.headerMaxHeight1};
-		padding: 2vh;
+		padding-top: 3vh;
+    padding-bottom: 3vh;
 		}
 	@media (min-height: ${breakpoints.height[1]}) {
 		height: ${sizes.headerMaxHeight2};
-		padding: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 		}
+  padding-left: ${$headerOptions.container.styleOverrides.paddingLeftRight};
+  padding-right: ${$headerOptions.container.styleOverrides.paddingLeftRight};
   background-color: ${$headerOptions.container.styleOverrides.backgroundColor};
 	`
 </script>
@@ -47,7 +52,6 @@
 </div>
 
 <style>
-  /* styles are defined dynamically above */
   .header-container {
     display: flex;
     justify-content: space-between;

@@ -62,4 +62,9 @@
     height: 50%;
     font-weight: bold;
   }
+  
+  .header-nav-item:last-of-type {
+    margin-right: 0rem;
+    padding-right: 0rem;
+  }
 </style>
