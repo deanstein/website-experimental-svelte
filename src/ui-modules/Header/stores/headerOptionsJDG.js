@@ -11,7 +11,7 @@
       },
       logo: {
         show: true,
-        src: './src/assets/img/jdg-logo.jpg',
+        src: './jdg-logo.jpg',
         alt: 'The work of Joshua Dean Goldstein',
         styleOverrides: {
             alignItems: 'center' /* vertically align the subtitle in the header */

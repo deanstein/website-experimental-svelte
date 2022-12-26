@@ -4,7 +4,7 @@
 
 <div id='hero-container'
     class='hero-container'>
-    <img src='./src/assets/img/hero.jpg' alt='Hero'>
+    <img src='./hero.jpg' alt='Hero'>
 </div>
 
 <style>
