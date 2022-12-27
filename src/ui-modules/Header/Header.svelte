@@ -1,6 +1,7 @@
 <script>
   // import from svelte
-  import { getContext } from 'svelte';
+  import { writable } from 'svelte/store';
+  import { setContext } from 'svelte';
 
   // import libraries
   import { css } from '@emotion/css';
@@ -13,8 +14,14 @@
   import HeaderLogo from './HeaderLogo.svelte'
   import HeaderNav from './HeaderNav.svelte'
 
-  // get header options from parent
-  const headerOptions = getContext('headerOptions')
+  // import the default options, and if provided, the overrides
+  import { headerOptionsDefault } from './stores/headerOptionsDefault'
+  export let headerOptionsOverrides = undefined;
+
+  // get header options overrides if they exist, otherwise use defaults
+  const headerOptions = headerOptionsOverrides ? writable(headerOptionsOverrides) : writable(headerOptionsDefault);
+
+  setContext('headerOptions', headerOptions)
 
   // dynamic styles
   const headerContainer = css`

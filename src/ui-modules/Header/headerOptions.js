@@ -1,12 +1,8 @@
- import { writable } from 'svelte/store';
-
- import { ObjectUtils } from '../../../utils';
-
- const headerOptions = {
+const headerOptions = {
     container: {
         styleOverrides: {
             paddingLeftRight: '2rem',
-            backgroundColor: 'gray',
+            backgroundColor: 'gray'
         }
     },
     logo: {
@@ -19,7 +15,7 @@
         subtitle: {
             show: false,
             text: 'An optional subtitle for this website'
-        },
+        }
     },
     nav: {
         show: true,
@@ -35,18 +31,7 @@
             itemBackgroundColor: 'darkGray',
             itemBackgroundColorHover: 'black'
         }
-    },
+    }
 }
 
-const { subscribe, set, update } = writable(headerOptions);
-
-const updateOptions = (newOptions) => {
-    update(currentOptions => {
-        return ObjectUtils.updateObject(currentOptions, newOptions);
-    })
-}
-
- export default {
-     subscribe,
-     updateOptions
- }
+export default headerOptions;

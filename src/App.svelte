@@ -1,14 +1,13 @@
 <script>
-  // import from svelte
-  import { setContext } from 'svelte';
+
+  import appOptions from './stores/appOptions'
 
   // import sub-components
   import Header from './ui-modules/Header/Header.svelte'
-  import headerOptions from './ui-modules/Header/stores/headerOptionsJDG'
+  const headerOptions = $appOptions.headerOptions;
 
   import Hero from './ui-modules/Hero/Hero.svelte'
 
-  setContext('headerOptions', headerOptions);
 </script>
 
 <main>
