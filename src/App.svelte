@@ -12,7 +12,7 @@
 
 <main>
   <div class='app'>
-    <Header />
+    <Header headerOptionsOverrides={$headerOptions} />
     <Hero />
   </div>
 </main>
