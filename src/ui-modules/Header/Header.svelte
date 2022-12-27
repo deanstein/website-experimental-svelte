@@ -15,12 +15,13 @@
   import HeaderNav from './HeaderNav.svelte'
 
   // import the default options, and if provided, the overrides
-  import { headerOptionsDefault } from './stores/headerOptionsDefault'
+  import headerOptionsDefault from './stores/headerOptionsDefault'
   export let headerOptionsOverrides = undefined;
 
   // get header options overrides if they exist, otherwise use defaults
-  const headerOptions = headerOptionsOverrides ? writable(headerOptionsOverrides) : writable(headerOptionsDefault);
+  const headerOptions = headerOptionsOverrides ? writable(headerOptionsOverrides) : writable($headerOptionsDefault);
 
+  // set the options as context for all children to consume
   setContext('headerOptions', headerOptions)
 
   // dynamic styles
@@ -50,17 +51,16 @@
 <div 
   id='header' 
   class='{headerContainer} header-container' 
-  style='
-  background-color: {$headerOptions.container.styleOverrides.backgroundColor};'>
+  style=
+  'background-color: {$headerOptions.container.styleOverrides.backgroundColor};'>
 
-{#if $headerOptions.logo.show}
-  <HeaderLogo />
-{/if}
+  {#if $headerOptions.logo.show}
+    <HeaderLogo />
+  {/if}
 
-{#if $headerOptions.nav.show}
-  <HeaderNav />
-{/if}
-
+  {#if $headerOptions.nav.show}
+    <HeaderNav />
+  {/if}
 </div>
 
 <style>

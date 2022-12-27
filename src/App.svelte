@@ -1,5 +1,5 @@
 <script>
-
+  // app options define options for all components
   import appOptions from './stores/appOptions'
 
   // import sub-components
