@@ -44,15 +44,13 @@
   padding-left: ${$headerOptions.container.styleOverrides.paddingLeftRight};
   padding-right: ${$headerOptions.container.styleOverrides.paddingLeftRight};
   background-color: ${$headerOptions.container.styleOverrides.backgroundColor};
-  opacity: 80%;
+  opacity: ${$headerOptions.container.styleOverrides.backgroundOpacity};
 	`
 </script>
 
 <div 
   id='header' 
-  class='{headerContainer} header-container' 
-  style=
-  'background-color: {$headerOptions.container.styleOverrides.backgroundColor};'>
+  class='{headerContainer} header-container'>
 
   {#if $headerOptions.logo.show}
     <HeaderLogo />
