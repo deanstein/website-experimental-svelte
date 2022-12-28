@@ -2,7 +2,8 @@ const headerOptions = {
     container: {
         styleOverrides: {
             paddingLeftRight: '2rem',
-            backgroundColor: 'gray'
+            backgroundColor: 'gray',
+            backgroundOpacity: '80%'
         }
     },
     logo: {
