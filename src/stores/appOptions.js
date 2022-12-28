@@ -11,8 +11,10 @@ const headerOptionsOverrides = {
     ...headerOptions,
     container: {
         styleOverrides: {
+            ...headerOptions.container.styleOverrides,
             paddingLeftRight: '2rem',
-            backgroundColor: '#FAFAFA'
+            backgroundColor: '#FAFAFA',
+            backgroundOpacity: '80%'
         }
       },
       logo: {
