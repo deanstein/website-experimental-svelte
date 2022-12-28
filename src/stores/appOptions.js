@@ -6,7 +6,6 @@ const appOptionsStore = {};
 
 // fill the store with any data that might change state
 import headerOptions from '../ui-modules/Header/headerOptions'
-
 const headerOptionsOverrides = { 
     ...headerOptions,
     container: {
@@ -46,7 +45,20 @@ const headerOptionsOverrides = {
     }
  }
 
+ import heroOptions from '../ui-modules/Hero/heroOptions';
+ const heroOptionsOverrides = {
+    ...heroOptions,
+    img: {
+        src: './hero.jpg',
+        styleOverrides: {
+            height: '100vh'
+        }
+    }
+ }
+
+ // append sub-stores from components
 appOptionsStore['headerOptions'] = writable(headerOptionsOverrides);
+appOptionsStore['heroOptions'] = writable(heroOptionsOverrides);
 
 const { subscribe, set, update } = writable(appOptionsStore);
 

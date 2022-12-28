@@ -7,13 +7,14 @@
   const headerOptions = $appOptions.headerOptions;
 
   import Hero from './ui-modules/Hero/Hero.svelte'
+  const heroOptions = $appOptions.heroOptions;
 
 </script>
 
 <main>
   <div class='app'>
     <Header headerOptionsOverrides={$headerOptions} />
-    <Hero />
+    <Hero heroOptionsOverrides={$heroOptions} />
   </div>
 </main>
 

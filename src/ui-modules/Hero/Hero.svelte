@@ -1,10 +1,26 @@
 <script>
-  
+    // import from svelte
+    import { writable } from 'svelte/store';
+
+    // import libraries
+    import { css } from '@emotion/css';
+    
+    // import the default options, and if provided, the overrides
+    import heroOptionsDefault from './stores/heroOptionsDefault'
+    export let heroOptionsOverrides = undefined;
+
+    // get options overrides if they exist, otherwise use defaults
+    const heroOptions = heroOptionsOverrides ? writable(heroOptionsOverrides) : writable($heroOptionsDefault);
+
+    // dynamic styles
+    const heroImage = css`
+        height: ${$heroOptions.img.styleOverrides.height};
+        `
 </script>
 
 <div id='hero-container'
     class='hero-container'>
-    <img src='./hero.jpg' alt='Hero'>
+    <img class={heroImage} src={$heroOptions.img.src} alt='Hero'>
 </div>
 
 <style>
@@ -16,5 +32,6 @@
 
     img {
         width: 100%;
+        object-fit: cover;
     }
 </style>
