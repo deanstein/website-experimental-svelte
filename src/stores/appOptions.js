@@ -45,20 +45,33 @@ const headerOptionsOverrides = {
     }
  }
 
- import heroOptions from '../ui-modules/Hero/heroOptions';
- const heroOptionsOverrides = {
-    ...heroOptions,
+ import heroWithProjectTypeOptions from '../ui-modules/HeroWithNav/heroWithNavOptions';
+ const heroWithProjectTypeOverrides = {
+    ...heroWithProjectTypeOptions,
     img: {
         src: './hero.jpg',
         styleOverrides: {
             height: '100vh'
         }
+    },
+    nav: {
+        items: [
+            {name: 'SOFTWARE', page: 'home.html'}, 
+            {name: 'PRODUCTS', page: 'about.html'}, 
+            {name: 'PLACES', page: 'contact.html'}
+            ],
+        styleOverrides: {
+            itemTextColor: 'white',
+            itemTextHoverColor: 'white',
+            itemBackgroundColor: 'darkGray',
+            itemBackgroundColorHover: 'black'
+            }
+        }
     }
- }
 
  // append sub-stores from components
 appOptionsStore['headerOptions'] = writable(headerOptionsOverrides);
-appOptionsStore['heroOptions'] = writable(heroOptionsOverrides);
+appOptionsStore['heroOptions'] = writable(heroWithProjectTypeOverrides);
 
 const { subscribe, set, update } = writable(appOptionsStore);
 
