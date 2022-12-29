@@ -38,7 +38,7 @@
 
     {#each $heroNavOptions.items as { name }, i}
 
-      <div class='{headerNavItem } header-nav-item'>{name}</div>
+      <div class='{headerNavItem } header-nav-item' style='background-color: {$heroNavOptions.items[i].itemBackgroundColor}'>{name}</div>
 
     {/each}
 </div>

@@ -4,6 +4,19 @@ import { ObjectUtils } from './../utils';
 // export all the app options as one object
 const appOptionsStore = {};
 
+// shared styles and breakpoints
+const appWideStyles = {
+    headerFooterBaseColor: '#FAFAFA',
+    buttonColor: '#7C7C7C',
+    accentColors: {
+        jdg: '#8CA9D3',
+        pmx: '#F26659',
+        pla: '#EBC999',
+        hst: '#F0EFF4',
+        sft: '#8CA9D3'
+    }
+}
+
 // fill the store with any data that might change state
 import headerOptions from '../ui-modules/Header/headerOptions'
 const headerOptionsOverrides = { 
@@ -12,7 +25,7 @@ const headerOptionsOverrides = {
         styleOverrides: {
             ...headerOptions.container.styleOverrides,
             paddingLeftRight: '2rem',
-            backgroundColor: '#FAFAFA',
+            backgroundColor: appWideStyles.headerFooterBaseColor,
             backgroundOpacity: '80%'
         }
       },
@@ -56,20 +69,31 @@ const headerOptionsOverrides = {
     },
     nav: {
         items: [
-            {name: 'SOFTWARE', page: 'home.html'}, 
-            {name: 'PRODUCTS', page: 'about.html'}, 
-            {name: 'PLACES', page: 'contact.html'}
+            {
+                name: 'SOFTWARE',
+                itemBackgroundColor: appWideStyles.accentColors.sft,
+                page: 'home.html'
+            }, 
+            {
+                name: 'PRODUCTS',
+                itemBackgroundColor: appWideStyles.accentColors.pmx,
+                page: 'about.html'
+            }, 
+            {
+                name: 'PLACES', 
+                itemBackgroundColor: appWideStyles.accentColors.pla,
+                page: 'contact.html'}
             ],
         styleOverrides: {
             itemTextColor: 'white',
             itemTextHoverColor: 'white',
-            itemBackgroundColor: 'darkGray',
             itemBackgroundColorHover: 'black'
             }
         }
     }
 
- // append sub-stores from components
+// append sub-stores from components
+appOptionsStore['appWideStyles'] = writable(appWideStyles);
 appOptionsStore['headerOptions'] = writable(headerOptionsOverrides);
 appOptionsStore['heroOptions'] = writable(heroWithProjectTypeOverrides);
 

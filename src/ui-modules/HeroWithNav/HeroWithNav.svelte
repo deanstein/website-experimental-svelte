@@ -3,13 +3,6 @@
     import { writable } from 'svelte/store';
     import { setContext } from 'svelte';
 
-    // import libraries
-    import { css } from '@emotion/css';
-
-    // import shared styles
-    import { breakpoints } from '../../shared-styles.js';
-    import { sizes } from '../../shared-styles.js';
-
     // import sub-components
     import Hero from '../Hero/Hero.svelte';
     import HeroNav from './HeroNav.svelte';
