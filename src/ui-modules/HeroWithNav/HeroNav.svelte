@@ -56,10 +56,10 @@
     letter-spacing: 5px;
     margin-left: 1rem;
     margin-right: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
     height: 50%;
     font-weight: bold;
+    font-size: 1.75rem;
     align-items: 'center';
   }
 </style>
