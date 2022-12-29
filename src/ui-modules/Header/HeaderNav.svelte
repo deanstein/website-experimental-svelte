@@ -31,6 +31,14 @@
   :hover {
     color: ${$headerOptions.nav.styleOverrides.itemTextHoverColor};
     background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
+  }
+  ${$headerOptions.nav.styleOverrides.itemBackgroundColor == 'none' &&
+  `
+  :last-of-type {  
+    margin-right: 0rem;
+    padding-right: 0rem;
+  }
+  `}
 `
 </script>
 
@@ -63,8 +71,4 @@
     font-weight: bold;
   }
   
-  .header-nav-item:last-of-type {
-    margin-right: 0rem;
-    padding-right: 0rem;
-  }
 </style>
