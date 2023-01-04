@@ -50,7 +50,7 @@
 
 <div 
   id='header' 
-  class='{headerContainer} header-container'>
+  class='{headerContainer} header-container' style='background-color: {$headerOptions.container.styleOverrides.backgroundColor};'>
 
   {#if $headerOptions.logo.show}
     <HeaderLogo />

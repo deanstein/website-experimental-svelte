@@ -17,6 +17,7 @@ export class ObjectUtils {
              }
            }
         }
+        target = target;
         return target;
      }
      

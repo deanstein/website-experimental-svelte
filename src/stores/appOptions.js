@@ -82,7 +82,8 @@ const headerOptionsOverrides = {
             {
                 name: 'PLACES', 
                 itemBackgroundColor: appWideStyles.accentColors.pla,
-                page: 'contact.html'}
+                page: 'contact.html'
+            }
             ],
         styleOverrides: {
             itemTextColor: 'white',
@@ -93,9 +94,9 @@ const headerOptionsOverrides = {
     }
 
 // append sub-stores from components
-appOptionsStore['appWideStyles'] = writable(appWideStyles);
-appOptionsStore['headerOptions'] = writable(headerOptionsOverrides);
-appOptionsStore['heroOptions'] = writable(heroWithProjectTypeOverrides);
+appOptionsStore['appWideStyles'] = appWideStyles;
+appOptionsStore['headerOptions'] = headerOptionsOverrides;
+appOptionsStore['heroOptions'] = heroWithProjectTypeOverrides;
 
 const { subscribe, set, update } = writable(appOptionsStore);
 
@@ -107,5 +108,7 @@ const updateOptions = (newOptions) => {
 
  export default {
      subscribe,
+     set,
+     update,
      updateOptions
  }
