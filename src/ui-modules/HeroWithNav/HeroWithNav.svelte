@@ -1,7 +1,7 @@
 <script>
     // import from svelte
     import { writable } from 'svelte/store';
-    import { setContext } from 'svelte';
+    //import { setContext } from 'svelte';
 
     // import sub-components
     import Hero from '../Hero/Hero.svelte';
@@ -14,7 +14,7 @@
     // get header options overrides if they exist, otherwise use defaults
     const heroWithNavOptions = heroWithNavOverrides ? writable(heroWithNavOverrides) : writable($heroWithNavOptionsDefault);
 
-    setContext('heroNavOptions', writable($heroWithNavOptions.nav));
+    //setContext('heroNavOptions', writable($heroWithNavOptions.nav));
 </script>
 
 <div id='hero-nav-overall-container' class='hero-nav-overall-container'>

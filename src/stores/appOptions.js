@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store';
-import { ObjectUtils } from './../utils';
 
 // export all the app options as one object
 const appOptionsStore = {};
@@ -58,9 +57,9 @@ const headerOptionsOverrides = {
     }
  }
 
- import heroWithProjectTypeOptions from '../ui-modules/HeroWithNav/heroWithNavOptions';
+ import heroWithNavOptions from '../ui-modules/HeroWithNav/heroWithNavOptions';
  const heroWithProjectTypeOverrides = {
-    ...heroWithProjectTypeOptions,
+    ...heroWithNavOptions,
     img: {
         src: './hero.jpg',
         styleOverrides: {
@@ -97,9 +96,13 @@ const headerOptionsOverrides = {
 appOptionsStore['appWideStyles'] = appWideStyles;
 appOptionsStore['headerOptions'] = headerOptionsOverrides;
 appOptionsStore['heroOptions'] = heroWithProjectTypeOverrides;
+appOptionsStore['heroWithNavOptions'] = heroWithNavOptions;
 
-const { subscribe, set, update } = writable(appOptionsStore);
+//const { subscribe, set, update } = writable(appOptionsStore);
 
+export const appOptions = writable(appOptionsStore);
+
+/*
 const updateOptions = (newOptions) => {
     update(currentOptions => {
         return ObjectUtils.updateObject(currentOptions, newOptions);
@@ -112,3 +115,4 @@ const updateOptions = (newOptions) => {
      update,
      updateOptions
  }
+ */

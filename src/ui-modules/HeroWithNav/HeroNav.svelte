@@ -1,20 +1,17 @@
 <script>
-  // import from svelte
-  import { getContext } from 'svelte';
-
   // import libraries
   import { css } from '@emotion/css';
 
   // import shared styles
   import { breakpoints } from '../../shared-styles.js';
-  import headerOptions from '../Header/headerOptions.js';
+  //import headerOptions from '../Header/headerOptions.js';
+  import { appOptions } from '../../stores/appOptions.js';
 
-  import update from '../../stores/appOptions'
+  // variable to use from store
 
-  let appOptions = getContext('appOptions')
-
-  // get header options from parent
-  const heroNavOptions = getContext('heroNavOptions')
+  appOptions.subscribe(currentValue => {
+    
+  })
 
   // dynamic styles powered by Emotion
   const headerNavContainer = css`
@@ -29,57 +26,41 @@
   }
 `
   const headerNavItem = css`
-  color: ${$heroNavOptions.styleOverrides.itemTextColor};
-  background-color: ${$heroNavOptions.styleOverrides.itemBackgroundColor};
+  color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextColor};
+  background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
-    color: ${$heroNavOptions.styleOverrides.itemTextHoverColor};
-    background-color: ${$heroNavOptions.styleOverrides.itemBackgroundColor};
+    color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextHoverColor};
+    background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
 `
 
   // on hover, each hero nav button should do something
   const onHoverAction = () => {
 
-    // test method 1
-    // $appOptions.appWideStyles = {
-    //   ...appOptions.appWideStyles,
-    //   headerFooterBaseColor: 'red'
-    // }
-
-    // $appOptions.headerOptions = {
-    //   ...appOptions.headerOptions,
-    //   nav: {
-    //     show: false
-    //   }
-    // }
-
-    // test method 2
-    appOptions.update(current => ({ ...current, 
-      headerOptions: {
+    appOptions.update(currentValue => {
+    return {
+      ...currentValue,
+      headerOptions:{
+        ...currentValue.headerOptions,
         container: {
-          ...headerOptions.container,
-            styleOverrides: {
-              ...headerOptions.container.styleOverrides,
-              backgroundColor: 'red'
-            }
-        },
-        nav: {
-          ...headerOptions.nav,
-          show: false
+          ...currentValue.headerOptions.container,
+          styleOverrides: {
+          ...currentValue.headerOptions.container.styleOverrides,
+          backgroundColor: 'red'
+        }
         }
       }
-    }))
-
-    console.log($appOptions)
-  }
+    }
+  })
+ }
 </script>
 
 <div 
   id="header-nav-container" 
   class='{headerNavContainer} header-nav-container'>
 
-    {#each $heroNavOptions.items as { name }, i}
+    {#each $appOptions.heroWithNavOptions.nav.items as { name }, i}
 
-      <div class='{headerNavItem} header-nav-item' style='background-color: {$heroNavOptions.items[i].itemBackgroundColor}' on:focus={onHoverAction} on:mouseover={onHoverAction}>{name}</div>
+      <div class='{headerNavItem} header-nav-item' style='background-color: {$appOptions.heroWithNavOptions.nav.items[i].itemBackgroundColor}' on:focus={onHoverAction} on:mouseover={onHoverAction}>{name}</div>
 
     {/each}
 </div>

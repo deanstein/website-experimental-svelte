@@ -1,12 +1,17 @@
 <script>
   // import from svelte
-  import { getContext } from 'svelte'
+
+  import { appOptions } from '../../stores/appOptions.js';
 
   // import libraries
   import { css } from '@emotion/css';
 
   // get header options from parent
-  const headerOptions = getContext('headerOptions')
+  let headerOptions = undefined;
+
+  appOptions.subscribe(currentValue => {
+    headerOptions = currentValue.headerOptions;
+  })
 
   // dynamic styles powered by Emotion
   const headerLogoContainer = css`
