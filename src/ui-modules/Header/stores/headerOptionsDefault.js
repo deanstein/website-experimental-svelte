@@ -4,7 +4,7 @@ import headerOptions from './../headerOptions'
 
 const headerOptionsDefault = headerOptions
 
-const { subscribe, set, update } = writable(headerOptionsDefault)
+const { subscribe, update } = writable(headerOptionsDefault)
 
 const updateOptions = (newOptions) => {
   update((currentOptions) => {

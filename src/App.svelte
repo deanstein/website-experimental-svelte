@@ -1,6 +1,5 @@
 <script>
   // import from svelte
-  import { setContext } from 'svelte'
   import { writable } from 'svelte/store'
 
   // app options define configurations for all components

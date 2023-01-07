@@ -13,8 +13,8 @@
   import { sizes } from '../../shared-styles.js'
 
   // import sub-components
-  import HeaderLogo from './HeaderLogo.svelte'
-  import HeaderNav from './HeaderNav.svelte'
+  // import HeaderLogo from './HeaderLogo.svelte'
+  // import HeaderNav from './HeaderNav.svelte'
 
   // import the default options, and if provided, the overrides
   import headerOptionsDefault from './stores/headerOptionsDefault'
