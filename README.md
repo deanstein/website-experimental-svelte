@@ -15,3 +15,15 @@ $ npm run dev
 
 $ yarn dev
 ```
+
+## Before Committing
+```
+$ npm run lint
+
+$ yarn lint
+```
+```
+$ npm run prettier
+
+$ yarn prettier
+```
