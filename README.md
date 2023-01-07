@@ -2,8 +2,16 @@
 
 A Svelte-based approach to a new website.
 
+## Install Node Dependencies
+```
+$ npm install
+
+$ yarn
+```
+
 ## Run Locally
-* cd website-experimental-svelte
-* npm install
-* npm i @emotion/css
-* npm run dev
+```
+$ npm run dev
+
+$ yarn dev
+```
