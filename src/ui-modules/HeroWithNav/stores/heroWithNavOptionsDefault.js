@@ -4,7 +4,7 @@ import heroWithNavOptions from '../heroWithNavOptions'
 
 const heroWithNavOptionsDefault = heroWithNavOptions
 
-const { subscribe, set, update } = writable(heroWithNavOptionsDefault)
+const { subscribe, update } = writable(heroWithNavOptionsDefault)
 
 const updateOptions = (newOptions) => {
   update((currentOptions) => {

@@ -9,7 +9,7 @@
 
   // variable to use from store
 
-  appOptions.subscribe((currentValue) => {})
+  appOptions.subscribe(() => {})
 
   // dynamic styles powered by Emotion
   const headerNavContainer = css`

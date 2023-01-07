@@ -4,7 +4,7 @@ import heroOptions from './../heroOptions'
 
 const heroOptionsDefault = heroOptions
 
-const { subscribe, set, update } = writable(heroOptionsDefault)
+const { subscribe, update } = writable(heroOptionsDefault)
 
 const updateOptions = (newOptions) => {
   update((currentOptions) => {

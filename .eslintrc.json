@@ -16,5 +16,9 @@
         "files": ["**/*.svelte"],
         "processor": "svelte3/svelte3"
       }
-    ]
+    ],
+    "rules": {
+      "no-self-assign": "off",
+      "no-prototype-builtins": "off"
+    }
   }
