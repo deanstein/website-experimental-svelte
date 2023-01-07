@@ -1,30 +1,29 @@
 <script>
   // import libraries
-  import { css } from '@emotion/css';
+  import { css } from '@emotion/css'
 
   // import shared styles
-  import { breakpoints } from '../../shared-styles.js';
+  import { breakpoints } from '../../shared-styles.js'
   //import headerOptions from '../Header/headerOptions.js';
-  import { appOptions } from '../../stores/appOptions.js';
+  import { appOptions } from '../../stores/appOptions.js'
 
   // variable to use from store
 
-  appOptions.subscribe(currentValue => {
-    
-  })
+  appOptions.subscribe((currentValue) => {})
 
   // dynamic styles powered by Emotion
   const headerNavContainer = css`
-  @media (max-width: ${breakpoints.width[0]}) {
-  display: block;
-  }
-  @media (min-width: ${breakpoints.width[0]}) and (max-height: ${breakpoints.width[1]}) {
-  display: flex;
-  }
-  @media (min-width: ${breakpoints.width[1]}) {
-    display: flex;
-  }
-`
+    @media (max-width: ${breakpoints.width[0]}) {
+      display: block;
+    }
+    @media (min-width: ${breakpoints.width[0]}) and (max-height: ${breakpoints
+        .width[1]}) {
+      display: flex;
+    }
+    @media (min-width: ${breakpoints.width[1]}) {
+      display: flex;
+    }
+  `
   const headerNavItem = css`
   color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextColor};
   background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
@@ -35,34 +34,39 @@
 
   // on hover, each hero nav button should do something
   const onHoverAction = () => {
-
-    appOptions.update(currentValue => {
-    return {
-      ...currentValue,
-      headerOptions:{
-        ...currentValue.headerOptions,
-        container: {
-          ...currentValue.headerOptions.container,
-          styleOverrides: {
-          ...currentValue.headerOptions.container.styleOverrides,
-          backgroundColor: 'red'
-        }
-        }
+    appOptions.update((currentValue) => {
+      return {
+        ...currentValue,
+        headerOptions: {
+          ...currentValue.headerOptions,
+          container: {
+            ...currentValue.headerOptions.container,
+            styleOverrides: {
+              ...currentValue.headerOptions.container.styleOverrides,
+              backgroundColor: 'red',
+            },
+          },
+        },
       }
-    }
-  })
- }
+    })
+  }
 </script>
 
-<div 
-  id="header-nav-container" 
-  class='{headerNavContainer} header-nav-container'>
-
-    {#each $appOptions.heroWithNavOptions.nav.items as { name }, i}
-
-      <div class='{headerNavItem} header-nav-item' style='background-color: {$appOptions.heroWithNavOptions.nav.items[i].itemBackgroundColor}' on:focus={onHoverAction} on:mouseover={onHoverAction}>{name}</div>
-
-    {/each}
+<div
+  id="header-nav-container"
+  class="{headerNavContainer} header-nav-container"
+>
+  {#each $appOptions.heroWithNavOptions.nav.items as { name }, i}
+    <div
+      class="{headerNavItem} header-nav-item"
+      style="background-color: {$appOptions.heroWithNavOptions.nav.items[i]
+        .itemBackgroundColor}"
+      on:focus={onHoverAction}
+      on:mouseover={onHoverAction}
+    >
+      {name}
+    </div>
+  {/each}
 </div>
 
 <style>
