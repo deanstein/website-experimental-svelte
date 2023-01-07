@@ -22,6 +22,13 @@ $ npm run lint
 
 $ yarn lint
 ```
+
+```
+$ npm run prettier:check
+
+$ yarn prettier:check
+```
+
 ```
 $ npm run prettier
 
