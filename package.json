@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "npx eslint --fix \"{,!(node_modules|public|dist)/**/}*.{js,svelte}\"",
-    "prettier": "npx prettier --write \"{,!(node_modules|public|dist)/**/}*.{js,svelte}\""
+    "lint": "eslint --fix \"{,!(node_modules|public|dist)/**/}*.{js,svelte}\"",
+    "prettier": "prettier --write \"{,!(node_modules|public|dist)/**/}*.{js,svelte}\"",
+    "prettier:check": "prettier --check \"{,!(node_modules|public|dist)/**/}*.{js,svelte}\""
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.1.0",

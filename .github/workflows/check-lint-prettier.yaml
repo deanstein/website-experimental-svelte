@@ -1,0 +1,31 @@
+name: Linter and Prettier
+on: 
+  push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    
+    steps:
+      
+      - name: Copy repository
+        uses: actions/checkout@v2
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install node dependencies
+        run: yarn
+      
+      - name: Lint code
+        run: yarn lint
+      - name: Prettier
+        run: yarn prettier:check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
