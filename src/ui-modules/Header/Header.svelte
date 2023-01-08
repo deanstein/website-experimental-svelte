@@ -1,37 +1,33 @@
 <script>
-  // import from svelte
-  import { writable } from 'svelte/store'
-  //import { setContext } from 'svelte';
-
   import { appOptions } from '../../stores/appOptions.js'
-
-  // import libraries
   import { css } from '@emotion/css'
-
-  // import shared styles
   import { breakpoints } from '../../shared-styles.js'
   import { sizes } from '../../shared-styles.js'
+  import { headerOptionsDefault } from './stores/headerOptionsDefault'
 
-  // import sub-components
-  // import HeaderLogo from './HeaderLogo.svelte'
-  // import HeaderNav from './HeaderNav.svelte'
-
-  // import the default options, and if provided, the overrides
-  import headerOptionsDefault from './stores/headerOptionsDefault'
   export let headerOptionsOverrides = undefined
-  let headerContainer
+  let headerOptions
+  let headerContainerClass
 
-  // get header options overrides if they exist, otherwise use defaults
-  const headerOptions = headerOptionsOverrides
-    ? writable(headerOptionsOverrides)
-    : writable($headerOptionsDefault)
+  appOptions.subscribe((appOptionStore) => {
+    const { headerOptions: headerOptionsFromStore } = appOptionStore
+    headerOptionsOverrides = {
+      ...headerOptionsFromStore,
+    }
 
-  appOptions.subscribe((currentValue) => {
-    headerOptionsOverrides = currentValue.headerOptions
-    console.log($headerOptions.container.styleOverrides.backgroundColor)
-    console.log(headerOptionsOverrides.container.styleOverrides.backgroundColor)
+    if (headerOptionsOverrides) {
+      headerOptions = {
+        ...headerOptionsOverrides,
+      }
+    } else {
+      headerOptionsDefault.subscribe((currentValue) => {
+        headerOptions = {
+          ...currentValue,
+        }
+      })
+    }
 
-    headerContainer = css`
+    headerContainerClass = css`
       @media (max-height: ${breakpoints.height[0]}) {
         height: ${sizes.headerMaxHeight0};
         padding-top: 5vh;
@@ -48,25 +44,21 @@
         padding-top: 2vh;
         padding-bottom: 2vh;
       }
-      padding-left: ${$headerOptions.container.styleOverrides.paddingLeftRight};
-      padding-right: ${$headerOptions.container.styleOverrides
-        .paddingLeftRight};
-      background-color: ${headerOptionsOverrides.container.styleOverrides
+      padding-left: ${headerOptions.container.styleOverrides.paddingLeftRight};
+      padding-right: ${headerOptions.container.styleOverrides.paddingLeftRight};
+      background-color: ${headerOptions.container.styleOverrides
         .backgroundColor};
-      opacity: ${$headerOptions.container.styleOverrides.backgroundOpacity};
+      opacity: ${headerOptions.container.styleOverrides.backgroundOpacity};
     `
   })
-
-  // set the options as context for all children to consume
-  //setContext('headerOptions', headerOptions)
 </script>
 
-<div id="header" class="{headerContainer} header-container">
-  {#if $headerOptions.logo.show}
+<div id="header" class="{headerContainerClass} header-container">
+  {#if headerOptions.logo.show}
     <!-- <HeaderLogo /> -->
   {/if}
 
-  {#if $headerOptions.nav.show}
+  {#if headerOptions.nav.show}
     <!-- <HeaderNav /> -->
   {/if}
 </div>
