@@ -1,18 +1,11 @@
 <script>
-  // import from svelte
-  import { getContext } from 'svelte'
-
-  // import libraries
   import { css } from '@emotion/css'
-
-  // import shared styles
   import { breakpoints } from '../../shared-styles.js'
 
-  // get header options from parent
-  const headerOptions = getContext('headerOptions')
+  export let headerOptionsFromParent
 
   // dynamic styles powered by Emotion
-  const headerNavContainer = css`
+  const headerNavContainerClass = css`
     @media (max-width: ${breakpoints.width[0]}) {
       display: block;
     }
@@ -23,18 +16,18 @@
     @media (min-width: ${breakpoints.width[1]}) {
       display: flex;
     }
-    align-items: ${$headerOptions.nav.styleOverrides.alignItems};
+    align-items: ${headerOptionsFromParent.nav.styleOverrides.alignItems};
   `
-  const headerNavItem = css`
-    align-items: ${$headerOptions.nav.styleOverrides.alignItems};
-    color: ${$headerOptions.nav.styleOverrides.itemTextColor};
-    background-color: ${$headerOptions.nav.styleOverrides.itemBackgroundColor};
+  const headerNavItemClass = css`
+    align-items: ${headerOptionsFromParent.nav.styleOverrides.alignItems};
+    color: ${headerOptionsFromParent.nav.styleOverrides.itemTextColor};
+    background-color: ${headerOptionsFromParent.nav.styleOverrides.itemBackgroundColor};
     :hover {
-      color: ${$headerOptions.nav.styleOverrides.itemTextHoverColor};
-      background-color: ${$headerOptions.nav.styleOverrides
+      color: ${headerOptionsFromParent.nav.styleOverrides.itemTextHoverColor};
+      background-color: ${headerOptionsFromParent.nav.styleOverrides
         .itemBackgroundColor};
     }
-    ${$headerOptions.nav.styleOverrides.itemBackgroundColor == 'none' &&
+    ${headerOptionsFromParent.nav.styleOverrides.itemBackgroundColor == 'none' &&
     `
   :last-of-type {  
     margin-right: 0rem;
@@ -46,10 +39,10 @@
 
 <div
   id="header-nav-container"
-  class="{headerNavContainer} header-nav-container"
+  class="{headerNavContainerClass} header-nav-container"
 >
-  {#each $headerOptions.nav.items as { name }, i}
-    <div class="{headerNavItem} header-nav-item">{name}</div>
+  {#each headerOptionsFromParent.nav.items as { name }, i}
+    <div class="{headerNavItemClass} header-nav-item">{name}</div>
   {/each}
 </div>
 

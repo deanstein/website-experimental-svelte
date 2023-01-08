@@ -14,6 +14,7 @@
 
   const initializeContainerClass = () =>
   {
+    // dynamic styles powered by Emotion
     headerContainerClass = css`
       @media (max-height: ${breakpoints.height[0]}) {
         height: ${sizes.headerMaxHeight0};
@@ -43,10 +44,10 @@
   if (appOptions)
   {
     appOptions.subscribe((currentValue) => {
-      const { headerOptions: headerOptionsOverridesFromApp } = currentValue;
+      const { headerOptions: headerOptionsFromParent } = currentValue;
 
       headerOptions = {
-        ...headerOptionsOverridesFromApp,
+        ...headerOptionsFromParent,
       }
 
       initializeContainerClass();
@@ -71,7 +72,7 @@
   {/if}
 
   {#if headerOptions.nav.show}
-    <!-- <HeaderNav /> -->
+    <HeaderNav headerOptionsFromParent={headerOptions}/>
   {/if}
 </div>
 

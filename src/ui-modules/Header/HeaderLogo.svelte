@@ -3,6 +3,7 @@
 
   export let headerOptionsFromParent
 
+  // dynamic styles powered by Emotion
   const headerLogoContainerClass = css`
     align-items: ${headerOptionsFromParent.logo.styleOverrides.alignItems};
   `
