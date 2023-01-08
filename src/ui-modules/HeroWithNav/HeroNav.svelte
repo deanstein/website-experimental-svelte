@@ -1,13 +1,10 @@
 <script>
   import { css } from '@emotion/css'
 
-  // import shared styles
   import { breakpoints } from '../../shared-styles.js'
   import { appOptions } from '../../stores/appOptions.js'
 
-  appOptions.subscribe(() => {
-    
-  })
+  appOptions.subscribe(() => {})
 
   // dynamic styles powered by Emotion
   const headerNavContainer = css`

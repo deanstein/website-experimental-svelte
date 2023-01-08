@@ -1,31 +1,41 @@
 <script>
-  // import from svelte
-  import { writable } from 'svelte/store'
-  //import { setContext } from 'svelte';
+  import { getContext } from 'svelte'
 
-  // import sub-components
   import Hero from '../Hero/Hero.svelte'
   import HeroNav from './HeroNav.svelte'
 
-  // import the default options, and if provided, the overrides
   import heroWithNavOptionsDefault from './stores/heroWithNavOptionsDefault'
-  export let heroWithNavOverrides = undefined
 
-  // get header options overrides if they exist, otherwise use defaults
-  const heroWithNavOptions = heroWithNavOverrides
-    ? writable(heroWithNavOverrides)
-    : writable($heroWithNavOptionsDefault)
+  let appOptions = getContext('appOptions')
+  let heroWithNavOptions
 
-  //setContext('heroNavOptions', writable($heroWithNavOptions.nav));
+  // use options overrides if available, otherwise use defaults
+  if (appOptions) {
+    appOptions.subscribe((currentValue) => {
+      const { heroWithNavOptions: heroWithNavOptionsFromParent } = currentValue
+
+      heroWithNavOptions = {
+        ...heroWithNavOptionsFromParent,
+      }
+    })
+  } else {
+    heroWithNavOptionsDefault.subscribe((currentValue) => {
+      heroWithNavOptions = {
+        ...currentValue,
+      }
+    })
+  }
+
+  console.log($appOptions)
 </script>
 
-<div id="hero-nav-overall-container" class="hero-nav-overall-container">
-  <Hero heroOptionsOverrides={$heroWithNavOptions} />
+<div id="hero-with-nav-container" class="hero-with-nav-container">
+  <Hero heroOptionsOverrides={heroWithNavOptions} />
   <HeroNav />
 </div>
 
 <style>
-  .hero-nav-overall-container {
+  .hero-with-nav-container {
     display: flex;
     justify-content: center;
   }

@@ -1,19 +1,18 @@
 <script>
-  import { getContext } from 'svelte';
+  import { getContext } from 'svelte'
   import { css } from '@emotion/css'
   import { breakpoints } from '../../shared-styles.js' // remove
-  import { sizes } from '../../shared-styles.js'// remove
+  import { sizes } from '../../shared-styles.js' // remove
   import { headerOptionsDefault } from './stores/headerOptionsDefault'
 
-  import HeaderLogo from './HeaderLogo.svelte';
-  import HeaderNav from './HeaderNav.svelte';
+  import HeaderLogo from './HeaderLogo.svelte'
+  import HeaderNav from './HeaderNav.svelte'
 
-  let appOptions = getContext('appOptions');
+  let appOptions = getContext('appOptions')
   let headerOptions
   let headerContainerClass
 
-  const initializeContainerClass = () =>
-  {
+  const initializeContainerClass = () => {
     // dynamic styles powered by Emotion
     headerContainerClass = css`
       @media (max-height: ${breakpoints.height[0]}) {
@@ -40,39 +39,35 @@
     `
   }
 
-  // define header options as overrides if available, otherwise defaults
-  if (appOptions)
-  {
+  // use options overrides if available, otherwise use defaults
+  if (appOptions) {
     appOptions.subscribe((currentValue) => {
-      const { headerOptions: headerOptionsFromParent } = currentValue;
+      const { headerOptions: headerOptionsFromParent } = currentValue
 
       headerOptions = {
         ...headerOptionsFromParent,
       }
 
-      initializeContainerClass();
+      initializeContainerClass()
     })
-  }
-  else {
-
+  } else {
     headerOptionsDefault.subscribe((currentValue) => {
-          headerOptions = {
-            ...currentValue,
-          }
+      headerOptions = {
+        ...currentValue,
+      }
 
-          initializeContainerClass();
-        })
-
+      initializeContainerClass()
+    })
   }
 </script>
 
 <div id="header" class="{headerContainerClass} header-container">
   {#if headerOptions.logo.show}
-    <HeaderLogo headerOptionsFromParent={headerOptions}/>
+    <HeaderLogo headerOptionsFromParent={headerOptions} />
   {/if}
 
   {#if headerOptions.nav.show}
-    <HeaderNav headerOptionsFromParent={headerOptions}/>
+    <HeaderNav headerOptionsFromParent={headerOptions} />
   {/if}
 </div>
 

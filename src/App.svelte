@@ -1,7 +1,7 @@
 <script>
-  import { setContext } from 'svelte';
+  import { setContext } from 'svelte'
   import { appOptions } from './stores/appOptions'
-  
+
   import Header from './ui-modules/Header/Header.svelte'
   import HeroWithNav from './ui-modules/HeroWithNav/HeroWithNav.svelte'
 

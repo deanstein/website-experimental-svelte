@@ -91,7 +91,6 @@ const heroWithProjectTypeOverrides = {
 
 appOptionsStore['appWideStyles'] = appWideStyles
 appOptionsStore['headerOptions'] = headerOptionsOverrides
-appOptionsStore['heroOptions'] = heroWithProjectTypeOverrides
-appOptionsStore['heroWithNavOptions'] = heroWithNavOptions
+appOptionsStore['heroWithNavOptions'] = heroWithProjectTypeOverrides
 
 export const appOptions = writable(appOptionsStore)

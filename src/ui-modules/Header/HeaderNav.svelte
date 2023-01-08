@@ -21,13 +21,15 @@
   const headerNavItemClass = css`
     align-items: ${headerOptionsFromParent.nav.styleOverrides.alignItems};
     color: ${headerOptionsFromParent.nav.styleOverrides.itemTextColor};
-    background-color: ${headerOptionsFromParent.nav.styleOverrides.itemBackgroundColor};
+    background-color: ${headerOptionsFromParent.nav.styleOverrides
+      .itemBackgroundColor};
     :hover {
       color: ${headerOptionsFromParent.nav.styleOverrides.itemTextHoverColor};
       background-color: ${headerOptionsFromParent.nav.styleOverrides
         .itemBackgroundColor};
     }
-    ${headerOptionsFromParent.nav.styleOverrides.itemBackgroundColor == 'none' &&
+    ${headerOptionsFromParent.nav.styleOverrides.itemBackgroundColor ==
+      'none' &&
     `
   :last-of-type {  
     margin-right: 0rem;

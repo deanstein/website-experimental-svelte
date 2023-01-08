@@ -7,7 +7,6 @@
   const headerLogoContainerClass = css`
     align-items: ${headerOptionsFromParent.logo.styleOverrides.alignItems};
   `
-
 </script>
 
 <div class="{headerLogoContainerClass} header-logo-container">
