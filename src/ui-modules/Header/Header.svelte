@@ -1,32 +1,16 @@
 <script>
-  import { appOptions } from '../../stores/appOptions.js'
   import { css } from '@emotion/css'
-  import { breakpoints } from '../../shared-styles.js'
-  import { sizes } from '../../shared-styles.js'
+  import { appOptions } from '../../stores/appOptions.js'
+  import { breakpoints } from '../../shared-styles.js' // remove
+  import { sizes } from '../../shared-styles.js'// remove
   import { headerOptionsDefault } from './stores/headerOptionsDefault'
 
-  export let headerOptionsOverrides = undefined
+  let headerOptionsOverrides
   let headerOptions
   let headerContainerClass
 
-  appOptions.subscribe((appOptionStore) => {
-    const { headerOptions: headerOptionsFromStore } = appOptionStore
-    headerOptionsOverrides = {
-      ...headerOptionsFromStore,
-    }
-
-    if (headerOptionsOverrides) {
-      headerOptions = {
-        ...headerOptionsOverrides,
-      }
-    } else {
-      headerOptionsDefault.subscribe((currentValue) => {
-        headerOptions = {
-          ...currentValue,
-        }
-      })
-    }
-
+  const initializeContainerClass = () =>
+  {
     headerContainerClass = css`
       @media (max-height: ${breakpoints.height[0]}) {
         height: ${sizes.headerMaxHeight0};
@@ -50,7 +34,38 @@
         .backgroundColor};
       opacity: ${headerOptions.container.styleOverrides.backgroundOpacity};
     `
+  }
+
+  if (appOptions)
+  {
+    appOptions.subscribe((currentValue) => {
+    const { headerOptions: headerOptionsFromStore } = currentValue
+    headerOptionsOverrides = {
+      ...headerOptionsFromStore,
+    }
+
+    // define header options as overrides if available, otherwise defaults
+    if (headerOptionsOverrides) {
+      headerOptions = {
+        ...headerOptionsOverrides,
+      }
+    } else {
+      headerOptionsDefault.subscribe((currentValue) => {
+        headerOptions = {
+          ...currentValue,
+        }
+      })
+    }
+
+    initializeContainerClass();
+
   })
+  }
+  else {
+
+    initializeContainerClass();
+
+  }
 </script>
 
 <div id="header" class="{headerContainerClass} header-container">
