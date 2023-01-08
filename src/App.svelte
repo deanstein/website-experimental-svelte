@@ -1,24 +1,35 @@
 <script>
-  // import from svelte
-  import { writable } from 'svelte/store'
-
-  // app options define configurations for all components
   import { appOptions } from './stores/appOptions'
-
-  // make the app-wide styles accessible to all components
-
-  // import sub-components
   import Header from './ui-modules/Header/Header.svelte'
-  const headerOptions = writable($appOptions.headerOptions)
+  // import HeroWithNav from './ui-modules/HeroWithNav/HeroWithNav.svelte'
 
-  import HeroWithNav from './ui-modules/HeroWithNav/HeroWithNav.svelte'
-  const heroOptions = writable($appOptions.heroOptions)
+  function handleClick() {
+    const colors = ['red', 'blue', 'green']
+    const color = colors[Math.floor(Math.random() * colors.length)]
+
+    appOptions.update((currentValue) => {
+      return {
+        ...currentValue,
+        headerOptions: {
+          ...currentValue.headerOptions,
+          container: {
+            ...currentValue.headerOptions.container,
+            styleOverrides: {
+              ...currentValue.headerOptions.container.styleOverrides,
+              backgroundColor: color,
+            },
+          },
+        },
+      }
+    })
+  }
 </script>
 
 <main>
   <div class="app">
-    <Header headerOptionsOverrides={$headerOptions} />
-    <HeroWithNav heroWithNavOverrides={$heroOptions} />
+    <Header />
+    <!-- <HeroWithNav /> -->
+    <button class="button" on:click={handleClick}>Update Color Nav</button>
   </div>
 </main>
 
@@ -29,5 +40,9 @@
 
   :global(body) {
     margin: 0;
+  }
+
+  .button {
+    margin-top: 150px;
   }
 </style>
