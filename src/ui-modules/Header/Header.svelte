@@ -1,13 +1,14 @@
 <script>
   import { getContext } from 'svelte';
   import { css } from '@emotion/css'
-  //import { appOptions } from '../../stores/appOptions.js'
   import { breakpoints } from '../../shared-styles.js' // remove
   import { sizes } from '../../shared-styles.js'// remove
   import { headerOptionsDefault } from './stores/headerOptionsDefault'
 
+  import HeaderLogo from './HeaderLogo.svelte';
+  import HeaderNav from './HeaderNav.svelte';
+
   let appOptions = getContext('appOptions');
-  let headerOptionsOverrides
   let headerOptions
   let headerContainerClass
 
@@ -43,17 +44,12 @@
   {
     appOptions.subscribe((currentValue) => {
       const { headerOptions: headerOptionsOverridesFromApp } = currentValue;
-      
-      headerOptionsOverrides = {
+
+      headerOptions = {
         ...headerOptionsOverridesFromApp,
       }
 
-      headerOptions = {
-        ...headerOptionsOverrides,
-      }
-
-    initializeContainerClass();
-
+      initializeContainerClass();
     })
   }
   else {
@@ -71,7 +67,7 @@
 
 <div id="header" class="{headerContainerClass} header-container">
   {#if headerOptions.logo.show}
-    <!-- <HeaderLogo /> -->
+    <HeaderLogo headerOptionsFromParent={headerOptions}/>
   {/if}
 
   {#if headerOptions.nav.show}

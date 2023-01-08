@@ -1,35 +1,25 @@
 <script>
-  // import from svelte
-
-  import { appOptions } from '../../stores/appOptions.js'
-
-  // import libraries
   import { css } from '@emotion/css'
 
-  // get header options from parent
-  let headerOptions = undefined
+  export let headerOptionsFromParent
 
-  appOptions.subscribe((currentValue) => {
-    headerOptions = currentValue.headerOptions
-  })
-
-  // dynamic styles powered by Emotion
-  const headerLogoContainer = css`
-    align-items: ${$headerOptions.logo.styleOverrides.alignItems};
+  const headerLogoContainerClass = css`
+    align-items: ${headerOptionsFromParent.logo.styleOverrides.alignItems};
   `
+
 </script>
 
-<div class="{headerLogoContainer} header-logo-container">
+<div class="{headerLogoContainerClass} header-logo-container">
   <img
-    src={$headerOptions.logo.src}
+    src={headerOptionsFromParent.logo.src}
     id="headerLogo"
     class="header-logo"
-    alt={$headerOptions.logo.alt}
+    alt={headerOptionsFromParent.logo.alt}
   />
 
-  {#if $headerOptions.logo.subtitle.show}
+  {#if headerOptionsFromParent.logo.subtitle.show}
     <div class="header-logo-subtitle">
-      {$headerOptions.logo.subtitle.text}
+      {headerOptionsFromParent.logo.subtitle.text}
     </div>
   {/if}
 </div>

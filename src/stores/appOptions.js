@@ -1,9 +1,7 @@
 import { writable } from 'svelte/store'
 
-// export all the app options as one object
 const appOptionsStore = {}
 
-// shared styles and breakpoints
 const appWideStyles = {
   headerFooterBaseColor: '#FAFAFA',
   buttonColor: '#7C7C7C',
@@ -16,7 +14,6 @@ const appWideStyles = {
   },
 }
 
-// fill the store with any data that might change state
 import headerOptions from '../ui-modules/Header/headerOptions'
 const headerOptionsOverrides = {
   ...headerOptions,
@@ -92,27 +89,9 @@ const heroWithProjectTypeOverrides = {
   },
 }
 
-// append sub-stores from components
 appOptionsStore['appWideStyles'] = appWideStyles
 appOptionsStore['headerOptions'] = headerOptionsOverrides
 appOptionsStore['heroOptions'] = heroWithProjectTypeOverrides
 appOptionsStore['heroWithNavOptions'] = heroWithNavOptions
 
-//const { subscribe, set, update } = writable(appOptionsStore);
-
 export const appOptions = writable(appOptionsStore)
-
-/*
-const updateOptions = (newOptions) => {
-    update(currentOptions => {
-        return ObjectUtils.updateObject(currentOptions, newOptions);
-    })
-}
-
- export default {
-     subscribe,
-     set,
-     update,
-     updateOptions
- }
- */
