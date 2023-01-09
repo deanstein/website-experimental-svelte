@@ -1,10 +1,10 @@
 <script>
   import { css } from '@emotion/css'
+  import { getContext } from 'svelte'
 
   import { breakpoints } from '../../shared-styles.js'
-  import { appOptions } from '../../stores/appOptions.js'
 
-  appOptions.subscribe(() => {})
+  let appOptions = getContext('appOptions')
 
   // dynamic styles powered by Emotion
   const headerNavContainer = css`
@@ -28,7 +28,7 @@
 `
 
   // on hover, each hero nav button should do something
-  const onHoverAction = () => {
+  const onHoverAction = (index) => {
     appOptions.update((currentValue) => {
       return {
         ...currentValue,
@@ -38,7 +38,9 @@
             ...currentValue.headerOptions.container,
             styleOverrides: {
               ...currentValue.headerOptions.container.styleOverrides,
-              backgroundColor: 'red',
+              backgroundColor:
+                $appOptions.heroWithNavOptions.nav.items[index]
+                  .itemBackgroundColor,
             },
           },
         },
@@ -56,8 +58,8 @@
       class="{headerNavItem} header-nav-item"
       style="background-color: {$appOptions.heroWithNavOptions.nav.items[i]
         .itemBackgroundColor}"
-      on:focus={onHoverAction}
-      on:mouseover={onHoverAction}
+      on:focus={() => onHoverAction(i)}
+      on:mouseover={() => onHoverAction(i)}
     >
       {name}
     </div>
