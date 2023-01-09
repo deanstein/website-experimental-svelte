@@ -28,7 +28,7 @@
 `
 
   // on hover, each hero nav button should do something
-  const onHoverAction = (index) => {
+  const updateHeaderColorViaButton = (buttonIndex) => {
     appOptions.update((currentValue) => {
       return {
         ...currentValue,
@@ -39,7 +39,7 @@
             styleOverrides: {
               ...currentValue.headerOptions.container.styleOverrides,
               backgroundColor:
-                $appOptions.heroWithNavOptions.nav.items[index]
+                $appOptions.heroWithNavOptions.nav.items[buttonIndex]
                   .itemBackgroundColor,
             },
           },
@@ -58,8 +58,8 @@
       class="{headerNavItem} header-nav-item"
       style="background-color: {$appOptions.heroWithNavOptions.nav.items[i]
         .itemBackgroundColor}"
-      on:focus={() => onHoverAction(i)}
-      on:mouseover={() => onHoverAction(i)}
+      on:focus={() => updateHeaderColorViaButton(i)}
+      on:mouseover={() => updateHeaderColorViaButton(i)}
     >
       {name}
     </div>

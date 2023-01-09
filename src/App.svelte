@@ -4,15 +4,16 @@
 
   import Header from './ui-modules/Header/Header.svelte'
   import HeroWithNav from './ui-modules/HeroWithNav/HeroWithNav.svelte'
+  import Section from './ui-modules/Section/Section.svelte'
 
   setContext('appOptions', appOptions)
-  //const heroOptions = writable($appOptions.heroOptions)
 </script>
 
 <main>
   <div class="app">
     <Header />
     <HeroWithNav />
+    <Section />
   </div>
 </main>
 
