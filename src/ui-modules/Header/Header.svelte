@@ -1,5 +1,6 @@
 <script>
   import { getContext } from 'svelte'
+  import { fade } from 'svelte/transition'
   import { css } from '@emotion/css'
   import { breakpoints } from '../../shared-styles.js' // remove
   import { sizes } from '../../shared-styles.js' // remove
@@ -61,14 +62,22 @@
   }
 </script>
 
-<div id="header" class="{headerContainerClass} header-container">
-  {#if headerOptions.logo.show}
-    <HeaderLogo headerOptionsFromParent={headerOptions} />
-  {/if}
+<div>
+  {#key $appOptions.headerOptions}
+    <div
+      id="header"
+      class="{headerContainerClass} header-container"
+      transition:fade
+    >
+      {#if headerOptions.logo.show}
+        <HeaderLogo headerOptionsFromParent={headerOptions} />
+      {/if}
 
-  {#if headerOptions.nav.show}
-    <HeaderNav headerOptionsFromParent={headerOptions} />
-  {/if}
+      {#if headerOptions.nav.show}
+        <HeaderNav headerOptionsFromParent={headerOptions} />
+      {/if}
+    </div>
+  {/key}
 </div>
 
 <style>

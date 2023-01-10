@@ -25,8 +25,6 @@
       }
     })
   }
-
-  console.log($appOptions)
 </script>
 
 <div id="hero-with-nav-container" class="hero-with-nav-container">
