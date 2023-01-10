@@ -58,8 +58,7 @@
             ...currentValue.headerOptions.container,
             styleOverrides: {
               ...currentValue.headerOptions.container.styleOverrides,
-              backgroundColor:
-                $appOptions.appWideStyles.headerFooterBaseColor,
+              backgroundColor: $appOptions.appWideStyles.headerFooterBaseColor,
             },
           },
         },
@@ -80,7 +79,8 @@
       on:focus={() => setHeaderColorToButtonColor(i)}
       on:blur={() => setHeaderColorToDefault()}
       on:mouseout={() => setHeaderColorToDefault()}
-      on:mouseover={() => setHeaderColorToButtonColor(i)}>
+      on:mouseover={() => setHeaderColorToButtonColor(i)}
+    >
       {name}
     </div>
   {/each}
