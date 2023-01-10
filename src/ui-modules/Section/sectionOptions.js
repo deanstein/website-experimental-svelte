@@ -1,7 +1,9 @@
 const sectionOptions = {
-  styleOverrides: {
-    backgroundColor: 'red',
-    height: '100vh',
+  container: {
+    styleOverrides: {
+      backgroundColor: 'red',
+      height: '100vh',
+    },
   },
 }
 

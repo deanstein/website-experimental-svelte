@@ -89,8 +89,19 @@ const heroWithProjectTypeOverrides = {
   },
 }
 
+import sectionOptions from '../ui-modules/Section/sectionOptions'
+const sectionOptionsOverrides = {
+  ...sectionOptions,
+  container: {
+    styleOverrides: {
+      backgroundColor: appWideStyles.headerFooterBaseColor,
+    },
+  },
+}
+
 appOptionsStore['appWideStyles'] = appWideStyles
 appOptionsStore['headerOptions'] = headerOptionsOverrides
 appOptionsStore['heroWithNavOptions'] = heroWithProjectTypeOverrides
+appOptionsStore['sectionOptions'] = sectionOptionsOverrides
 
 export const appOptions = writable(appOptionsStore)
