@@ -11,11 +11,11 @@
 
   let appOptions = getContext('appOptions')
   let headerOptions
-  let headerContainerClass
+  let headerContainerDynamicClass
 
-  const initializeContainerClass = () => {
+  const initializeDynamicStyles = () => {
     // dynamic styles powered by Emotion
-    headerContainerClass = css`
+    headerContainerDynamicClass = css`
       @media (max-height: ${breakpoints.height[0]}) {
         height: ${sizes.headerMaxHeight0};
         padding-top: 5vh;
@@ -49,7 +49,7 @@
         ...headerOptionsFromParent,
       }
 
-      initializeContainerClass()
+      initializeDynamicStyles()
     })
   } else {
     headerOptionsDefault.subscribe((currentValue) => {
@@ -57,7 +57,7 @@
         ...currentValue,
       }
 
-      initializeContainerClass()
+      initializeDynamicStyles()
     })
   }
 </script>
@@ -66,7 +66,7 @@
   {#key $appOptions.headerOptions}
     <div
       id="header"
-      class="{headerContainerClass} header-container"
+      class="{headerContainerDynamicClass} header-container"
       transition:fade
     >
       {#if headerOptions.logo.show}
@@ -82,6 +82,7 @@
 
 <style>
   .header-container {
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     position: fixed;

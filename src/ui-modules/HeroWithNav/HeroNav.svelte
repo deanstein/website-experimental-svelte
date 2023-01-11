@@ -7,7 +7,7 @@
   let appOptions = getContext('appOptions')
 
   // dynamic styles powered by Emotion
-  const headerNavContainer = css`
+  const headerNavContainerDynamicClass = css`
     @media (max-width: ${breakpoints.width[0]}) {
       display: block;
     }
@@ -19,7 +19,7 @@
       display: flex;
     }
   `
-  const headerNavItem = css`
+  const headerNavItemDynamicClass = css`
   color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextColor};
   background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
@@ -69,11 +69,11 @@
 
 <div
   id="header-nav-container"
-  class="{headerNavContainer} header-nav-container"
+  class="{headerNavContainerDynamicClass} header-nav-container"
 >
   {#each $appOptions.heroWithNavOptions.nav.items as { name }, i}
     <div
-      class="{headerNavItem} header-nav-item"
+      class="{headerNavItemDynamicClass} header-nav-item"
       style="background-color: {$appOptions.heroWithNavOptions.nav.items[i]
         .itemBackgroundColor}"
       on:focus={() => setHeaderColorToButtonColor(i)}
