@@ -65,6 +65,22 @@
       }
     })
   }
+
+  const setHeroImageToButtonData = (buttonIndex) => {
+    appOptions.update((currentValue) => {
+      console.log($appOptions)
+      return {
+        ...currentValue,
+        heroWithNavOptions: {
+          ...currentValue.heroWithNavOptions,
+          img: {
+            ...currentValue.heroWithNavOptions.img,
+            src: $appOptions.heroWithNavOptions.nav.items[buttonIndex].itemHeroImage,
+          },
+        },
+      }
+    })
+  }
 </script>
 
 <div
@@ -80,6 +96,8 @@
       on:blur={() => setHeaderColorToDefault()}
       on:mouseout={() => setHeaderColorToDefault()}
       on:mouseover={() => setHeaderColorToButtonColor(i)}
+      on:focus={() => setHeroImageToButtonData(i)}
+      on:mouseover={() => setHeroImageToButtonData(i)}
     >
       {name}
     </div>

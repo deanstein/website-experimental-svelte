@@ -1,27 +1,39 @@
 <script>
-  // import from svelte
-  import { writable } from 'svelte/store'
-
-  // import libraries
+  import { getContext } from 'svelte';
   import { css } from '@emotion/css'
 
-  // import the default options, and if provided, the overrides
   import heroOptionsDefault from './stores/heroOptionsDefault'
-  export let heroOptionsOverrides = undefined
 
-  // get options overrides if they exist, otherwise use defaults
-  const heroOptions = heroOptionsOverrides
-    ? writable(heroOptionsOverrides)
-    : writable($heroOptionsDefault)
+  let appOptions = getContext('appOptions')
+  let heroOptions = undefined
+  export let heroOptionsKey
+
+  // use options overrides if available, otherwise use defaults
+  if (appOptions) {
+  appOptions.subscribe((currentValue) => {
+
+    if (currentValue.heroOptionsKey) {
+      heroOptions = currentValue.heroOptionsKey
+    }
+
+    console.log(heroOptions)
+  })
+} else {
+  heroOptionsDefault.subscribe((currentValue) => {
+    heroOptions = {
+      ...currentValue,
+    }
+  })
+}
 
   // dynamic styles
-  const heroImage = css`
+  const heroImageDynamicClass = css`
     height: ${$heroOptions.img.styleOverrides.height};
   `
 </script>
 
 <div id="hero-container" class="hero-container">
-  <img class={heroImage} src={$heroOptions.img.src} alt="Hero" />
+  <img class={heroImageDynamicClass} src={heroOptions.img.src} alt="Hero" />
 </div>
 
 <style>

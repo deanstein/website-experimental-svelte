@@ -8,9 +8,10 @@ const appWideStyles = {
   accentColors: {
     jdg: '#8CA9D3',
     pmx: '#F26659',
-    pla: '#EBC999',
+    pla: '#99A7EB',
     hst: '#F0EFF4',
-    sft: '#8CA9D3',
+    sft: '#6CCE4B',
+    ccp: '#6E5835'
   },
 }
 
@@ -58,7 +59,7 @@ import heroWithNavOptions from '../ui-modules/HeroWithNav/heroWithNavOptions'
 const heroWithProjectTypeOverrides = {
   ...heroWithNavOptions,
   img: {
-    src: './hero.jpg',
+    src: './img/projectTypeHero/places.jpg',
     styleOverrides: {
       height: '100vh',
     },
@@ -68,16 +69,19 @@ const heroWithProjectTypeOverrides = {
       {
         name: 'SOFTWARE',
         itemBackgroundColor: appWideStyles.accentColors.sft,
+        itemHeroImage: './img/projectTypeHero/software.jpg',
         page: 'home.html',
       },
       {
         name: 'PRODUCTS',
         itemBackgroundColor: appWideStyles.accentColors.pmx,
+        itemHeroImage: './img/projectTypeHero/products.jpg',
         page: 'about.html',
       },
       {
         name: 'PLACES',
         itemBackgroundColor: appWideStyles.accentColors.pla,
+        itemHeroImage: './img/projectTypeHero/places.jpg',
         page: 'contact.html',
       },
     ],
@@ -99,9 +103,14 @@ const sectionOptionsOverrides = {
   },
 }
 
+const optionsKeys = {
+  heroWithProjectTypeOptionsKey : 'heroWithProjectTypeOverrides'
+}
+
 appOptionsStore['appWideStyles'] = appWideStyles
 appOptionsStore['headerOptions'] = headerOptionsOverrides
-appOptionsStore['heroWithNavOptions'] = heroWithProjectTypeOverrides
+appOptionsStore[optionsKeys.heroWithProjectTypeOptionsKey] = heroWithProjectTypeOverrides
 appOptionsStore['sectionOptions'] = sectionOptionsOverrides
+appOptionsStore['optionsKeys'] = optionsKeys
 
 export const appOptions = writable(appOptionsStore)

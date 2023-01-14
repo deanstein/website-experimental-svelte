@@ -7,6 +7,7 @@
   import heroWithNavOptionsDefault from './stores/heroWithNavOptionsDefault'
 
   let appOptions = getContext('appOptions')
+  export let heroWithNavOptionsKey
   let heroWithNavOptions
 
   // use options overrides if available, otherwise use defaults
@@ -28,7 +29,7 @@
 </script>
 
 <div id="hero-with-nav-container" class="hero-with-nav-container">
-  <Hero heroOptionsOverrides={heroWithNavOptions} />
+  <Hero heroOptionsKey={heroWithNavOptionsKey} />
   <HeroNav />
 </div>
 

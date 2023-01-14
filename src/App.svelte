@@ -12,7 +12,7 @@
 <main>
   <div class="app">
     <Header />
-    <HeroWithNav />
+    <HeroWithNav heroWithNavOptionsKey={$appOptions.optionsKeys.heroWithProjectTypeOptionsKey}/>
     <Section />
   </div>
 </main>
