@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition';
   import { getContext } from 'svelte'
   import { css } from '@emotion/css'
 
@@ -31,35 +32,16 @@
 
   heroOptions = getHeroOptions()
 
-  // // use options overrides if available, otherwise use defaults
-  // if (appOptions) {
-  //   appOptions.subscribe((currentValue) => {
-
-  //     if (heroOptionsKey) {
-  //       heroOptions = currentValue[heroOptionsKey]
-  //     }
-
-  //     console.log(currentValue)
-  //     console.log(heroOptionsKey)
-  //     console.log(heroOptions)
-  //     console.log(currentValue[heroOptionsKey])
-  //   })
-  // } else {
-  //   heroOptionsDefault.subscribe((currentValue) => {
-  //     heroOptions = {
-  //       ...currentValue,
-  //     }
-  //   })
-  // }
-
   // dynamic styles
   const heroImageDynamicClass = css`
     height: ${heroOptions.img.styleOverrides.height};
   `
 </script>
 
-<div id="hero-container" class="hero-container">
-  <img class={heroImageDynamicClass} src={heroOptions.img.src} alt="Hero" />
+<div id="hero-container" class="hero-container" >
+  {#key $appOptions[heroOptionsKey]}
+  <img class={heroImageDynamicClass} src={$appOptions[heroOptionsKey].img.src} alt="Hero" transition:fade/>
+  {/key}
 </div>
 
 <style>

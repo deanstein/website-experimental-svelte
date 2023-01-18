@@ -69,7 +69,7 @@ const heroWithProjectTypeOverrides = {
       {
         name: 'SOFTWARE',
         itemBackgroundColor: appWideStyles.accentColors.sft,
-        itemHeroImage: './img/projectTypeHero/software.jpg',
+        itemHeroImage: './img/projectTypeHero/software.png',
         page: 'home.html',
       },
       {
