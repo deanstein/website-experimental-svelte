@@ -1,34 +1,60 @@
 <script>
-  import { getContext } from 'svelte';
+  import { getContext } from 'svelte'
   import { css } from '@emotion/css'
 
   import heroOptionsDefault from './stores/heroOptionsDefault'
 
   let appOptions = getContext('appOptions')
-  let heroOptions = undefined
+  let heroOptions
   export let heroOptionsKey
 
-  // use options overrides if available, otherwise use defaults
-  if (appOptions) {
-  appOptions.subscribe((currentValue) => {
+  const getHeroOptions = () => {
+    let options = undefined
 
-    if (currentValue.heroOptionsKey) {
-      heroOptions = currentValue.heroOptionsKey
+    // use options overrides if available, otherwise use defaults
+    if (appOptions) {
+      appOptions.subscribe((currentValue) => {
+        if (heroOptionsKey) {
+          options = currentValue[heroOptionsKey]
+        }
+      })
+    } else {
+      heroOptionsDefault.subscribe((currentValue) => {
+        options = {
+          ...currentValue,
+        }
+      })
     }
 
-    console.log(heroOptions)
-  })
-} else {
-  heroOptionsDefault.subscribe((currentValue) => {
-    heroOptions = {
-      ...currentValue,
-    }
-  })
-}
+    return options
+  }
+
+  heroOptions = getHeroOptions()
+
+  // // use options overrides if available, otherwise use defaults
+  // if (appOptions) {
+  //   appOptions.subscribe((currentValue) => {
+
+  //     if (heroOptionsKey) {
+  //       heroOptions = currentValue[heroOptionsKey]
+  //     }
+
+  //     console.log(currentValue)
+  //     console.log(heroOptionsKey)
+  //     console.log(heroOptions)
+  //     console.log(currentValue[heroOptionsKey])
+  //   })
+  // } else {
+  //   heroOptionsDefault.subscribe((currentValue) => {
+  //     heroOptions = {
+  //       ...currentValue,
+  //     }
+  //   })
+  // }
 
   // dynamic styles
   const heroImageDynamicClass = css`
-    height: ${$heroOptions.img.styleOverrides.height};
+    height: ${heroOptions.img.styleOverrides.height};
   `
 </script>
 

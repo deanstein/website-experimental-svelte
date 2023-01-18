@@ -11,7 +11,7 @@ const appWideStyles = {
     pla: '#99A7EB',
     hst: '#F0EFF4',
     sft: '#6CCE4B',
-    ccp: '#6E5835'
+    ccp: '#6E5835',
   },
 }
 
@@ -104,12 +104,13 @@ const sectionOptionsOverrides = {
 }
 
 const optionsKeys = {
-  heroWithProjectTypeOptionsKey : 'heroWithProjectTypeOverrides'
+  heroWithProjectTypeOptionsKey: 'heroWithProjectTypeOverrides',
 }
 
 appOptionsStore['appWideStyles'] = appWideStyles
 appOptionsStore['headerOptions'] = headerOptionsOverrides
-appOptionsStore[optionsKeys.heroWithProjectTypeOptionsKey] = heroWithProjectTypeOverrides
+appOptionsStore[optionsKeys.heroWithProjectTypeOptionsKey] =
+  heroWithProjectTypeOverrides
 appOptionsStore['sectionOptions'] = sectionOptionsOverrides
 appOptionsStore['optionsKeys'] = optionsKeys
 

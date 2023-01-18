@@ -5,6 +5,26 @@
   import { breakpoints } from '../../shared-styles.js'
 
   let appOptions = getContext('appOptions')
+  export let heroNavOptionsKey
+
+  let heroNavOptions
+
+  const getHeroNavOptions = () => {
+    let options = undefined
+
+    // use options overrides if available, otherwise use defaults
+    if (appOptions) {
+      appOptions.subscribe((currentValue) => {
+        if (heroNavOptionsKey) {
+          options = currentValue[heroNavOptionsKey]
+        }
+      })
+    }
+
+    return options
+  }
+
+  heroNavOptions = getHeroNavOptions()
 
   // dynamic styles powered by Emotion
   const headerNavContainerDynamicClass = css`
@@ -20,11 +40,11 @@
     }
   `
   const headerNavItemDynamicClass = css`
-  color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextColor};
-  background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
+  color: ${heroNavOptions.nav.styleOverrides.itemTextColor};
+  background-color: ${heroNavOptions.nav.styleOverrides.itemBackgroundColor};
   :hover {
-    color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemTextHoverColor};
-    background-color: ${$appOptions.heroWithNavOptions.nav.styleOverrides.itemBackgroundColor};
+    color: ${heroNavOptions.nav.styleOverrides.itemTextHoverColor};
+    background-color: ${heroNavOptions.nav.styleOverrides.itemBackgroundColor};
 `
 
   // on hover, each hero nav button should do something
@@ -39,8 +59,7 @@
             styleOverrides: {
               ...currentValue.headerOptions.container.styleOverrides,
               backgroundColor:
-                $appOptions.heroWithNavOptions.nav.items[buttonIndex]
-                  .itemBackgroundColor,
+                heroNavOptions.nav.items[buttonIndex].itemBackgroundColor,
             },
           },
         },
@@ -68,14 +87,13 @@
 
   const setHeroImageToButtonData = (buttonIndex) => {
     appOptions.update((currentValue) => {
-      console.log($appOptions)
       return {
         ...currentValue,
-        heroWithNavOptions: {
-          ...currentValue.heroWithNavOptions,
+        [heroNavOptionsKey]: {
+          ...currentValue[heroNavOptionsKey],
           img: {
-            ...currentValue.heroWithNavOptions.img,
-            src: $appOptions.heroWithNavOptions.nav.items[buttonIndex].itemHeroImage,
+            ...currentValue[heroNavOptionsKey].img,
+            src: heroNavOptions.nav.items[buttonIndex].itemHeroImage,
           },
         },
       }
@@ -87,10 +105,10 @@
   id="header-nav-container"
   class="{headerNavContainerDynamicClass} header-nav-container"
 >
-  {#each $appOptions.heroWithNavOptions.nav.items as { name }, i}
+  {#each heroNavOptions.nav.items as { name }, i}
     <div
       class="{headerNavItemDynamicClass} header-nav-item"
-      style="background-color: {$appOptions.heroWithNavOptions.nav.items[i]
+      style="background-color: {heroNavOptions.nav.items[i]
         .itemBackgroundColor}"
       on:focus={() => setHeaderColorToButtonColor(i)}
       on:blur={() => setHeaderColorToDefault()}
