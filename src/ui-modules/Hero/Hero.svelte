@@ -1,5 +1,5 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade } from 'svelte/transition'
   import { getContext } from 'svelte'
   import { css } from '@emotion/css'
 
@@ -38,9 +38,14 @@
   `
 </script>
 
-<div id="hero-container" class="hero-container" >
+<div id="hero-container" class="hero-container">
   {#key $appOptions[heroOptionsKey]}
-  <img class={heroImageDynamicClass} src={$appOptions[heroOptionsKey].img.src} alt="Hero" transition:fade/>
+    <img
+      class={heroImageDynamicClass}
+      src={$appOptions[heroOptionsKey].img.src}
+      alt="Hero"
+      transition:fade
+    />
   {/key}
 </div>
 
